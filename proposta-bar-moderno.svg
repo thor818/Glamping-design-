@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1250" width="1080" height="1250" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="g" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a9d55"/></marker>
+    <marker id="o" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e07a1f"/></marker>
+    <pattern id="slat" width="0.08" height="1" patternUnits="userSpaceOnUse">
+      <rect width="0.08" height="1" fill="#b07d4f"/><rect width="0.012" height="1" fill="#8a5d36"/>
+    </pattern>
+  </defs>
+  <rect width="1080" height="1250" fill="#ffffff"/>
+  <text x="40" y="34" font-size="22" font-weight="bold" fill="#222">Bar moderno “Good Food” – cassa al centro, ritiro e birre ai lati</text>
+  <text x="40" y="56" font-size="13" fill="#666">Pianta schematica dallo schizzo (≈ 1:100, misure da verificare). Nessun muro demolito.</text>
+
+  <!-- ================= PLAN (1 m = 50 px) ================= -->
+  <g transform="translate(40,80) scale(50)" font-size="0.26">
+    <rect x="0" y="0" width="18.7" height="10.5" fill="#faf8f3"/>
+    <rect x="0" y="0" width="4.45" height="4.75" fill="#ececec"/>
+    <rect x="4.45" y="0" width="2.75" height="3.3" fill="#ececec"/>
+    <rect x="7.2" y="0" width="2.7" height="2.67" fill="#ececec"/>
+    <rect x="12.4" y="0" width="3.45" height="2.38" fill="#ececec"/>
+    <rect x="15.85" y="0" width="2.85" height="2.38" fill="#ececec"/>
+    <rect x="0" y="4.75" width="2.4" height="5.75" fill="#f1efe9"/>
+    <g stroke="#999" stroke-width="0.03">
+      <line x1="5.2" y1="0.4" x2="6.8" y2="0.4"/><line x1="5.2" y1="0.75" x2="6.8" y2="0.75"/>
+      <line x1="5.2" y1="1.1" x2="6.8" y2="1.1"/><line x1="5.2" y1="1.45" x2="6.8" y2="1.45"/>
+      <line x1="5.2" y1="1.8" x2="6.8" y2="1.8"/><line x1="5.2" y1="2.15" x2="6.8" y2="2.15"/>
+    </g>
+    <text x="2.22" y="2.3" text-anchor="middle" font-weight="bold" fill="#444">CUCINA</text>
+    <text x="5.8" y="2.8" text-anchor="middle" fill="#666" font-size="0.22">scala</text>
+    <text x="8.55" y="1.3" text-anchor="middle" fill="#666" font-size="0.22">forno</text>
+    <text x="8.55" y="1.6" text-anchor="middle" fill="#666" font-size="0.22">a legna</text>
+    <text x="14.1" y="0.8" text-anchor="middle" fill="#444">MAGAZZINO</text>
+    <text x="17.27" y="0.8" text-anchor="middle" fill="#444">CANTINA</text>
+    <text x="1.2" y="7.6" text-anchor="middle" fill="#888" font-size="0.22">tettoia</text>
+
+    <!-- kegs in cantina -->
+    <g fill="#d4a017" stroke="#8a6a00" stroke-width="0.02">
+      <circle cx="16.4" cy="1.6" r="0.2"/><circle cx="16.85" cy="1.6" r="0.2"/><circle cx="16.4" cy="1.15" r="0.2"/><circle cx="16.85" cy="1.15" r="0.2"/>
+    </g>
+    <text x="16.62" y="2.15" text-anchor="middle" fill="#8a6a00" font-size="0.16">fusti + spillatore</text>
+
+    <!-- pizza station in alcove -->
+    <rect x="9.95" y="0.06" width="2.4" height="0.7" fill="#e76f51" stroke="#9c3d26" stroke-width="0.03"/>
+    <text x="11.15" y="0.47" text-anchor="middle" fill="#fff" font-size="0.2" font-weight="bold">BANCO PIZZA</text>
+    <text x="11.15" y="1.15" text-anchor="middle" fill="#9c3d26" font-size="0.17">pizzaiolo a vista</text>
+    <text x="11.15" y="1.38" text-anchor="middle" fill="#9c3d26" font-size="0.17">accanto al forno</text>
+
+    <!-- WC block -->
+    <rect x="2.4" y="4.95" width="5.2" height="5.55" fill="#e4e4e4" stroke="#222" stroke-width="0.1"/>
+    <text x="5" y="7.6" text-anchor="middle" fill="#555">WC / servizi</text>
+    <text x="5" y="7.95" text-anchor="middle" fill="#888" font-size="0.22">(invariati)</text>
+
+    <!-- walls -->
+    <g stroke="#222" stroke-width="0.12" fill="none" stroke-linecap="square">
+      <line x1="0" y1="0" x2="18.7" y2="0"/>
+      <line x1="0" y1="0" x2="0" y2="10.5"/>
+      <line x1="18.7" y1="0" x2="18.7" y2="5.6"/>
+      <line x1="18.7" y1="6.5" x2="18.7" y2="10.5"/>
+      <line x1="4.45" y1="0" x2="4.45" y2="3.5"/>
+      <line x1="4.45" y1="4.3" x2="4.45" y2="4.75"/>
+      <line x1="0" y1="4.75" x2="4.45" y2="4.75"/>
+      <line x1="4.45" y1="3.3" x2="7.2" y2="3.3"/>
+      <line x1="7.2" y1="0" x2="7.2" y2="3.3"/>
+      <line x1="7.2" y1="2.67" x2="9.9" y2="2.67"/>
+      <line x1="9.9" y1="0" x2="9.9" y2="2.67"/>
+      <line x1="12.4" y1="0" x2="12.4" y2="2.38"/>
+      <line x1="15.85" y1="0" x2="15.85" y2="2.38"/>
+      <line x1="12.4" y1="2.38" x2="14.9" y2="2.38"/>
+      <line x1="15.7" y1="2.38" x2="17.5" y2="2.38"/>
+      <line x1="18.3" y1="2.38" x2="18.7" y2="2.38"/>
+      <line x1="12.4" y1="2.38" x2="11.8" y2="3.56"/>
+    </g>
+    <g stroke="#555" stroke-width="0.03" fill="none">
+      <path d="M4.45,3.5 L3.65,3.5 A0.8,0.8 0 0 0 4.45,4.3"/>
+      <path d="M14.9,2.38 L14.9,1.58 A0.8,0.8 0 0 1 15.7,2.38"/>
+      <path d="M17.5,2.38 L17.5,1.58 A0.8,0.8 0 0 1 18.3,2.38"/>
+    </g>
+    <text x="18.85" y="6.15" fill="#666" font-size="0.2">→ scala /</text>
+    <text x="18.85" y="6.4" fill="#666" font-size="0.2">dance</text>
+
+    <!-- graphic wall -->
+    <line x1="12.5" y1="2.47" x2="18.62" y2="2.47" stroke="#e76f51" stroke-width="0.07"/>
+
+    <!-- old bar removed -->
+    <rect x="7.8" y="4.9" width="3.4" height="1.7" rx="0.35" fill="#e63946" fill-opacity="0.07" stroke="#e63946" stroke-width="0.05" stroke-dasharray="0.15 0.1"/>
+    <line x1="7.9" y1="5" x2="11.1" y2="6.5" stroke="#e63946" stroke-width="0.04"/>
+    <line x1="7.9" y1="6.5" x2="11.1" y2="5" stroke="#e63946" stroke-width="0.04"/>
+    <text x="9.5" y="7.0" text-anchor="middle" fill="#e63946" font-weight="bold" font-size="0.22">BAR ATTUALE – DA TOGLIERE</text>
+    <rect x="7.6" y="7.4" width="0.6" height="2.0" fill="#8ecae6" stroke="#457b9d" stroke-width="0.04"/>
+    <text x="8.4" y="8.25" fill="#1d3557" font-size="0.22">rientro vassoi</text>
+    <text x="8.4" y="8.55" fill="#1d3557" font-size="0.22">acqua · posate · salse</text>
+
+    <!-- aisle -->
+    <rect x="12.4" y="2.52" width="6.3" height="0.76" fill="#fde7cf"/>
+
+    <!-- counter -->
+    <rect x="13.0" y="3.28" width="1.6" height="0.65" fill="#f4a259"/>
+    <rect x="14.6" y="3.28" width="1.0" height="0.65" fill="#f6bd60"/>
+    <rect x="15.6" y="3.28" width="1.2" height="0.65" fill="#2a9d8f"/>
+    <rect x="16.8" y="3.28" width="1.9" height="0.65" fill="#e9c46a"/>
+    <rect x="13.0" y="3.28" width="5.7" height="0.65" fill="none" stroke="#222" stroke-width="0.05"/>
+    <g fill="#8a6a00"><circle cx="17.2" cy="3.45" r="0.06"/><circle cx="17.45" cy="3.45" r="0.06"/><circle cx="17.7" cy="3.45" r="0.06"/><circle cx="17.95" cy="3.45" r="0.06"/></g>
+    <g font-size="0.19" text-anchor="middle" fill="#222" font-weight="bold">
+      <text x="13.8" y="3.66">RITIRO</text>
+      <text x="15.1" y="3.58" font-size="0.15">vetrina</text>
+      <text x="15.1" y="3.78" font-size="0.15">pizze</text>
+      <text x="16.2" y="3.67" fill="#fff">CASSA</text>
+      <text x="17.75" y="3.78" font-size="0.17">BIRRE spina</text>
+    </g>
+    <line x1="17.35" y1="2.62" x2="17.35" y2="3.35" stroke="#8a6a00" stroke-width="0.03" stroke-dasharray="0.06 0.05"/>
+
+    <!-- pillar -->
+    <rect x="14.48" y="4.88" width="0.35" height="0.35" fill="#222"/>
+    <text x="14.65" y="5.5" text-anchor="middle" fill="#444" font-size="0.17">pilastro = totem menu</text>
+
+    <!-- staff flow -->
+    <path d="M4.6,3.95 H11.6 L12.3,2.9 H13.6" fill="none" stroke="#e07a1f" stroke-width="0.07" stroke-dasharray="0.25 0.15" marker-end="url(#o)"/>
+    <path d="M11.9,1.5 L12.45,2.85" fill="none" stroke="#e07a1f" stroke-width="0.05" stroke-dasharray="0.2 0.12"/>
+    <text x="8" y="3.75" text-anchor="middle" fill="#e07a1f" font-size="0.2">percorso cucina → ritiro</text>
+    <text x="15.9" y="3.15" text-anchor="middle" fill="#b5651d" font-size="0.15">barista: cassa + spina (1 persona)</text>
+
+    <!-- customer flow -->
+    <path d="M16.2,9.6 V4.15" fill="none" stroke="#2a9d55" stroke-width="0.08" marker-end="url(#g)"/>
+    <path d="M12.2,7.6 L13.6,4.25" fill="none" stroke="#2a9d55" stroke-width="0.08" stroke-dasharray="0.2 0.1" marker-end="url(#g)"/>
+    <g fill="#2a9d55" font-size="0.2">
+      <circle cx="16.2" cy="6.2" r="0.22"/><text x="16.2" y="6.27" text-anchor="middle" fill="#fff" font-weight="bold">1</text>
+      <text x="16.5" y="6.1">ordina, paga,</text><text x="16.5" y="6.35">prende la birra</text><text x="16.5" y="6.6">+ cicalino</text>
+      <circle cx="12.75" cy="6.3" r="0.22"/><text x="12.75" y="6.37" text-anchor="middle" fill="#fff" font-weight="bold">2</text>
+      <text x="11.95" y="7.95" text-anchor="middle">al tavolo, suona →</text>
+      <text x="11.95" y="8.2" text-anchor="middle">ritira il piatto</text>
+    </g>
+
+    <text x="14.2" y="9.2" text-anchor="middle" fill="#bbb" font-size="0.3" font-weight="bold">SALA / TAVOLI</text>
+    <line x1="7.6" y1="9.8" x2="18.7" y2="9.8" stroke="#999" stroke-width="0.03" stroke-dasharray="0.2 0.12"/>
+    <text x="10.5" y="10.15" fill="#999" font-size="0.18">↓ ristorante porticato / esterno</text>
+  </g>
+
+  <!-- ================= ELEVATION (1 m = 100 px) ================= -->
+  <text x="40" y="640" font-size="17" font-weight="bold" fill="#222">Vista frontale del bar (dalla sala)</text>
+  <text x="40" y="660" font-size="12" fill="#666">Parete magazzino/cantina come parete grafica: porte rasomuro mimetizzate, insegna luminosa, schermi menu sopra la cassa.</text>
+  <g transform="translate(225,680) scale(100)" font-family="Helvetica, Arial, sans-serif">
+    <!-- wall -->
+    <rect x="0" y="0" width="6.3" height="3.2" fill="#22302e"/>
+    <!-- doors (flush, hidden) -->
+    <g fill="none" stroke="#3c4f4c" stroke-width="0.015">
+      <rect x="2.5" y="1.1" width="0.8" height="2.1"/>
+      <rect x="5.1" y="1.1" width="0.8" height="2.1"/>
+    </g>
+    <!-- lettering -->
+    <g font-weight="bold" fill="#ffd166">
+      <text x="1.05" y="0.62" text-anchor="middle" font-size="0.29">GOOD FOOD</text>
+      <text x="1.05" y="1.05" text-anchor="middle" font-size="0.29" fill="#f4a261">GOOD TIME</text>
+      <text x="5.4" y="0.62" text-anchor="middle" font-size="0.24">GOOD PEOPLE</text>
+      <text x="5.4" y="1.05" text-anchor="middle" font-size="0.24" fill="#f4a261">GOOD LIFE</text>
+    </g>
+    <line x1="0.2" y1="1.18" x2="1.9" y2="1.18" stroke="#ffd166" stroke-width="0.02"/>
+    <line x1="4.65" y1="1.18" x2="6.15" y2="1.18" stroke="#ffd166" stroke-width="0.02"/>
+    <!-- menu screens -->
+    <g>
+      <rect x="2.75" y="0.35" width="0.5" height="0.8" fill="#111" stroke="#666" stroke-width="0.015"/>
+      <rect x="3.3" y="0.35" width="0.5" height="0.8" fill="#111" stroke="#666" stroke-width="0.015"/>
+      <rect x="3.85" y="0.35" width="0.5" height="0.8" fill="#111" stroke="#666" stroke-width="0.015"/>
+      <g font-size="0.09" fill="#ffd166" text-anchor="middle" font-weight="bold">
+        <text x="3.0" y="0.55">PIZZE</text><text x="3.55" y="0.55">PIATTI</text><text x="4.1" y="0.55">BIRRE</text>
+      </g>
+      <g stroke="#555" stroke-width="0.012">
+        <line x1="2.82" y1="0.68" x2="3.18" y2="0.68"/><line x1="2.82" y1="0.8" x2="3.18" y2="0.8"/><line x1="2.82" y1="0.92" x2="3.18" y2="0.92"/>
+        <line x1="3.37" y1="0.68" x2="3.73" y2="0.68"/><line x1="3.37" y1="0.8" x2="3.73" y2="0.8"/><line x1="3.37" y1="0.92" x2="3.73" y2="0.92"/>
+        <line x1="3.92" y1="0.68" x2="4.28" y2="0.68"/><line x1="3.92" y1="0.8" x2="4.28" y2="0.8"/><line x1="3.92" y1="0.92" x2="4.28" y2="0.92"/>
+      </g>
+    </g>
+    <!-- wood band behind counter -->
+    <rect x="0.6" y="1.35" width="5.7" height="0.75" fill="url(#slat)" opacity="0.55"/>
+    <!-- heat lamps over pick-up + pendants -->
+    <g stroke="#888" stroke-width="0.01">
+      <line x1="1.0" y1="0" x2="1.0" y2="1.45"/><line x1="1.6" y1="0" x2="1.6" y2="1.45"/>
+      <line x1="4.9" y1="0" x2="4.9" y2="1.4"/><line x1="5.6" y1="0" x2="5.6" y2="1.4"/>
+    </g>
+    <g fill="#ffb703"><path d="M0.88,1.45 h0.24 l0.05,0.12 h-0.34z"/><path d="M1.48,1.45 h0.24 l0.05,0.12 h-0.34z"/></g>
+    <g fill="#f1faee"><circle cx="4.9" cy="1.46" r="0.07"/><circle cx="5.6" cy="1.46" r="0.07"/></g>
+    <!-- beer taps -->
+    <g fill="#c9c9c9">
+      <rect x="4.75" y="1.82" width="0.04" height="0.28"/><rect x="5.0" y="1.82" width="0.04" height="0.28"/>
+      <rect x="5.25" y="1.82" width="0.04" height="0.28"/><rect x="5.5" y="1.82" width="0.04" height="0.28"/>
+      <rect x="4.7" y="1.78" width="0.9" height="0.05" fill="#999"/>
+    </g>
+    <!-- pizza display -->
+    <rect x="2.2" y="1.8" width="1.0" height="0.3" fill="#fff" fill-opacity="0.25" stroke="#ddd" stroke-width="0.01"/>
+    <!-- counter front -->
+    <rect x="0.6" y="2.1" width="5.7" height="1.1" fill="url(#slat)"/>
+    <rect x="0.6" y="2.05" width="5.7" height="0.07" fill="#2b2b2b"/>
+    <rect x="3.2" y="2.12" width="1.2" height="1.08" fill="#2a9d8f" opacity="0.85"/>
+    <g font-size="0.13" fill="#fff" font-weight="bold" text-anchor="middle">
+      <text x="1.4" y="2.45">RITIRO</text>
+      <text x="3.8" y="2.45">CASSA</text>
+      <text x="5.35" y="2.45">BIRRE</text>
+    </g>
+    <!-- pillar in front -->
+    <rect x="2.08" y="0" width="0.35" height="3.2" fill="#5b5b5b" opacity="0.55"/>
+    <text x="2.255" y="1.9" font-size="0.1" fill="#fff" text-anchor="middle" transform="rotate(-90 2.255 1.9)">PILASTRO · TOTEM MENU</text>
+    <!-- floor -->
+    <line x1="-0.2" y1="3.2" x2="6.5" y2="3.2" stroke="#222" stroke-width="0.03"/>
+    <g font-size="0.1" fill="#666">
+      <text x="-0.15" y="2.12" text-anchor="end">h 1,10</text>
+      <text x="-0.15" y="0.1" text-anchor="end">h ≈ 3,20</text>
+    </g>
+  </g>
+
+  <!-- legend -->
+  <g font-size="13" fill="#333" transform="translate(40,1035)">
+    <text x="0" y="0" font-weight="bold" font-size="15">Perché così</text>
+    <text x="0" y="24">• Cassa al centro: un solo barista fa cassa e spina, e in due passi aiuta anche al ritiro. La fila va dritta verso la sala, il pilastro non dà fastidio.</text>
+    <text x="0" y="46">• Ritiro a sinistra, vicino all'ingresso della cucina e al forno: cucina e pizzaiolo fanno 1–2 metri per appoggiare i piatti.</text>
+    <text x="0" y="68">• Birre a destra, attaccate alla cantina: fusti in cantina e linee corte fino alle spine (solo un piccolo foro, nessun muro rotto).</text>
+    <text x="0" y="90">• Fast food “ordina e paga → cicalino → ritira”: niente fila lunga col vassoio lungo il bancone, più veloce nelle ore di punta.</text>
+    <text x="0" y="112">• Parete dietro tutta grafica: GOOD FOOD · GOOD TIME · GOOD PEOPLE · GOOD LIFE, con porte rasomuro e luce calda.</text>
+    <text x="0" y="140" fill="#d00">⚠ Da verificare in loco: dove esce la bocca del forno, altezza soffitto, distanza muro–pilastro, passaggio linee birra cantina → bancone.</text>
+  </g>
+</svg>
