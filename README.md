@@ -2,7 +2,16 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – long bar with lift-up flap (v9)
+## 0. NEWEST – real Buffalo Soldiers photo, entrance shelves, floor seating (v10)
+
+Same as v9 (long bar with flap), plus: your original Buffalo Soldiers photo as a full wall at the entrance, steel-and-oak shelves on the left and right, and the lounge redone with floor seating: a low solid-oak platform under the windows with leather cushions, low oak tables, leather floor cushions and poufs. Everything chosen to last (leather, waxed canvas, solid oak, steel, sealed travertine).
+
+| | |
+|---|---|
+| ![Entrance](render-3d/v10-ingresso-e-sedute-a-terra/1-ingresso-buffalo-soldiers.png) | ![Entrance shelves](render-3d/v10-ingresso-e-sedute-a-terra/2-ingresso-scaffali.png) |
+| ![Lounge floor seating](render-3d/v10-ingresso-e-sedute-a-terra/3-lounge-sedute-a-terra.png) | ![From above](render-3d/v10-ingresso-e-sedute-a-terra/6-vista-dall-alto.png) |
+
+## 0a. Long bar with lift-up flap (v9)
 
 Same open lounge as v8, but the travertine bar is now about 8.7 m long and runs wall to wall. Staff go through a lift-up flap to reach the pizza oven and the kitchen, and the extension is the food pass where the kitchen and the pizza maker put the plates.
 
