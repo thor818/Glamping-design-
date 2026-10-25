@@ -2,7 +2,16 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – white Ligurian home (v7)
+## 0. NEWEST – open lounge, contemporary Italian (v8)
+
+A cool, open lounge where you can eat everywhere: long shared oak tables, an olive bouclé banquette, a travertine bar on a terracotta wall with a warm neon line, big paper lanterns, low sofas and round tables in the lounge, a minimal fireplace. Calm palette: cream, travertine, oak, terracotta, olive. No walls broken.
+
+| | |
+|---|---|
+| ![Bar](render-3d/v8-lounge-aperto/1-bar.png) | ![Sala](render-3d/v8-lounge-aperto/2-sala-tavoli-lunghi.png) |
+| ![Lounge](render-3d/v8-lounge-aperto/3-lounge.png) | ![From the lounge](render-3d/v8-lounge-aperto/4-dalla-lounge.png) |
+
+## 0a. White Ligurian home (v7)
 
 Italian white and wood, like a home, not a café: white walls, your floor, a white panelled bar with a wooden top, linen tablecloths, your natural straw chairs, wooden furniture, framed pictures, fabric lamps, a wood stove in the lounge, neutral rugs and cushions.
 
