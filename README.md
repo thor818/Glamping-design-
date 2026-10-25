@@ -2,7 +2,18 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 1. Current proposal – mix of modern and antique (no arches)
+## 0. NEW – light design (v4)
+
+White walls, your existing floor, square windows, no beams and no stone. Blue fluted bar on a sage-green wall, your straw chairs painted black, sage, navy and cream, your long iron table, one antique glass cabinet painted sage, the green trolley, and the Buffalo Soldiers mural at the entrance.
+
+| | |
+|---|---|
+| ![Bar](render-3d/v4-leggero/1-bar.png) | ![Entrance](render-3d/v4-leggero/2-ingresso-buffalo-soldiers.png) |
+| ![Sala](render-3d/v4-leggero/3-sala.png) | ![Lounge](render-3d/v4-leggero/4-lounge-camino.png) |
+
+![From above](render-3d/v4-leggero/5-vista-dall-alto.png)
+
+## 1. Previous proposal – mix of modern and antique (no arches)
 
 Light, young, for bikers: white walls, stone only behind the bar and at the fireplace, blue fluted bar, metal bistro chairs, a few antique pieces.
 
