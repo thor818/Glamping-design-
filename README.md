@@ -2,7 +2,17 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – open lounge, contemporary Italian (v8)
+## 0. NEWEST – long bar with lift-up flap (v9)
+
+Same open lounge as v8, but the travertine bar is now about 8.7 m long and runs wall to wall. Staff go through a lift-up flap to reach the pizza oven and the kitchen, and the extension is the food pass where the kitchen and the pizza maker put the plates.
+
+| | |
+|---|---|
+| ![Long bar](render-3d/v9-bar-lungo/1-bar-lungo.png) | ![Flap and food pass](render-3d/v9-bar-lungo/2-ribalta-e-passe.png) |
+
+![Bar from above, explained](render-3d/v9-bar-lungo/3-bar-dall-alto-spiegato.png)
+
+## 0a. Open lounge, contemporary Italian (v8)
 
 A cool, open lounge where you can eat everywhere: long shared oak tables, an olive bouclé banquette, a travertine bar on a terracotta wall with a warm neon line, big paper lanterns, low sofas and round tables in the lounge, a minimal fireplace. Calm palette: cream, travertine, oak, terracotta, olive. No walls broken.
 
