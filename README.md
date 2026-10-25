@@ -2,7 +2,16 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – industrial biker workshop (v5)
+## 0. NEWEST – white Ligurian home (v7)
+
+Italian white and wood, like a home, not a café: white walls, your floor, a white panelled bar with a wooden top, linen tablecloths, your natural straw chairs, wooden furniture, framed pictures, fabric lamps, a wood stove in the lounge, neutral rugs and cushions.
+
+| | |
+|---|---|
+| ![Bar](render-3d/v7-bianco-ligure/1-bar.png) | ![Sala](render-3d/v7-bianco-ligure/2-sala.png) |
+| ![Lounge](render-3d/v7-bianco-ligure/3-lounge.png) | ![Entrance](render-3d/v7-bianco-ligure/4-ingresso.png) |
+
+## 0a. Industrial biker workshop (v5)
 
 Concrete walls, dark ceiling with exposed steel ducts, grey concrete-look floor, black and steel everywhere. The bar has a corrugated-steel front and a concrete top, with cage Edison lamps and steel doors with yellow-black stripes. Your props: the 2 petrol pumps, the 2 flippers, the Caltex sign, the Vespa at the entrance, the cart wheels and bikes on the walls, oil cans, the long iron table, the green trolley, leather sofas and armchairs, the Persian rug, the crystal chandelier, and the Buffalo Soldiers mural. Metal chairs in grey, black and red.
 
