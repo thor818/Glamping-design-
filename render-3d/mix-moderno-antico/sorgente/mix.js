@@ -32,6 +32,7 @@ function wallPlane(face, cx, cz, w, y0, y1, mat) {
   m.position.set(cx, (y0 + y1) / 2, cz); m.rotation.y = { S: 0, N: Math.PI, E: Math.PI / 2, W: -Math.PI / 2 }[face];
   m.receiveShadow = true; scene.add(m); return m;
 }
+function rectPath(p, x0, x1, h) { p.moveTo(x0, 0); p.lineTo(x0, h); p.lineTo(x1, h); p.lineTo(x1, 0); p.lineTo(x0, 0); }
 // arch path helper (in a shape's local XY): rectangle with semicircular top
 function archPath(p, x0, x1, ySpring) {
   const r = (x1 - x0) / 2; p.moveTo(x0, 0); p.lineTo(x0, ySpring); p.absarc(x0 + r, ySpring, r, Math.PI, 0, true); p.lineTo(x1, 0); p.lineTo(x0, 0);
@@ -239,7 +240,7 @@ const showCeiling = VIEW !== 'top';
 
 // bar back wall: exposed stone with two arched old wooden doors framed in brick
 { const s = new THREE.Shape(); s.moveTo(12.4, 0); s.lineTo(18.7, 0); s.lineTo(18.7, HS); s.lineTo(12.4, HS); s.lineTo(12.4, 0);
-  for (const [a, b] of [[14.85, 15.75], [17.45, 18.35]]) { const hp = new THREE.Path(); archPath(hp, a, b, 1.75); s.holes.push(hp); }
+  for (const [a, b] of [[14.85, 15.75], [17.45, 18.35]]) { const hp = new THREE.Path(); rectPath(hp, a, b, 2.15); s.holes.push(hp); }
   const g = new THREE.ExtrudeGeometry(s, { depth: 0.35, bevelEnabled: false });
   const t = texStone.clone(); t.needsUpdate = true; rep(t, 1 / 1.6, 1 / 1.6);
   const m = new THREE.Mesh(g, T(t, { roughness: 0.97 })); m.position.z = 2.03; m.receiveShadow = true; m.castShadow = true; scene.add(m);
@@ -249,9 +250,9 @@ const showCeiling = VIEW !== 'top';
     ring.absarc(cx, 1.75, r, 0, Math.PI, false); ring.lineTo(a, 0); ring.lineTo(a - 0.14, 0);
     const rg = new THREE.ExtrudeGeometry(ring, { depth: 0.38, bevelEnabled: false });
     const bt = texBrick.clone(); bt.needsUpdate = true; rep(bt, 1 / 0.8, 1 / 0.8);
-    const rm = new THREE.Mesh(rg, M('#efebe3', { roughness: 0.9 })); rm.position.z = 2.02; scene.add(rm);
-    const ds = new THREE.Shape(); archPath(ds, a, b, 1.75);
-    const dg = new THREE.ShapeGeometry(ds); const uv = dg.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, (uv.getX(i) - a) / (b - a), uv.getY(i) / (1.75 + r));
+    box(a - 0.08, a, 0, 2.23, 2.36, 2.42, M('#efebe3')); box(b, b + 0.08, 0, 2.23, 2.36, 2.42, M('#efebe3')); box(a - 0.08, b + 0.08, 2.15, 2.23, 2.36, 2.42, M('#efebe3'));
+    const ds = new THREE.Shape(); rectPath(ds, a, b, 2.15);
+    const dg = new THREE.ShapeGeometry(ds); const uv = dg.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, (uv.getX(i) - a) / (b - a), uv.getY(i) / 2.15);
     const dm = new THREE.Mesh(dg, T(texDoorSage, { roughness: 0.7 })); dm.position.z = 2.2; scene.add(dm);
   }
 }
@@ -279,16 +280,9 @@ if (showCeiling) {
 // stone arcade between sala and lounge (three big arches)
 { const s = new THREE.Shape(); s.moveTo(7.6, 0); s.lineTo(18.7, 0); s.lineTo(18.7, HP); s.lineTo(7.6, HP); s.lineTo(7.6, 0);
   const arches = [[9.0, 10.8], [12.0, 13.8], [15.0, 16.8]];
-  for (const [a, b] of arches) { const p = new THREE.Path(); archPath(p, a, b, 1.95); s.holes.push(p); }
+  for (const [a, b] of arches) { const p = new THREE.Path(); rectPath(p, a, b, 2.45); s.holes.push(p); }
   const g = new THREE.ExtrudeGeometry(s, { depth: 0.45, bevelEnabled: false });
   const m = new THREE.Mesh(g, plasterM); m.position.z = 9.58; m.castShadow = true; m.receiveShadow = true; scene.add(m);
-  for (const [a, b] of arches) {
-    const r = (b - a) / 2, cx = a + r, ring = new THREE.Shape();
-    ring.moveTo(a - 0.3, 0); ring.lineTo(a - 0.3, 1.95); ring.absarc(cx, 1.95, r + 0.3, Math.PI, 0, true); ring.lineTo(b + 0.3, 0); ring.lineTo(b, 0); ring.lineTo(b, 1.95);
-    ring.absarc(cx, 1.95, r, 0, Math.PI, false); ring.lineTo(a, 0); ring.lineTo(a - 0.3, 0);
-    const t = texStone.clone(); t.needsUpdate = true; rep(t, 1 / 1.0, 1 / 1.0);
-    const rm = new THREE.Mesh(new THREE.ExtrudeGeometry(ring, { depth: 0.49, bevelEnabled: false }), M('#f7f4ee', { roughness: 0.9 })); rm.position.z = 9.56; rm.castShadow = true; scene.add(rm);
-  }
 }
 // south wall: big arched windows with sheer linen curtains
 { const s = new THREE.Shape(); s.moveTo(7.6, 0); s.lineTo(18.7, 0); s.lineTo(18.7, HP); s.lineTo(7.6, HP); s.lineTo(7.6, 0);
@@ -495,6 +489,7 @@ const cams = {
   bar:    { pos: [12.9, 1.6, 10.7], at: [15.4, 1.45, 2.4], fov: 56 },
   sala:   { pos: [17.9, 1.7, 8.55], at: [8.2, 1.3, 5.6], fov: 64 },
   lounge: { pos: [10.1, 1.75, 10.65], at: [18.4, 0.9, 12.1], fov: 64 },
+  lounge2: { pos: [13.0, 1.6, 12.6], at: [12.9, 1.5, 3.0], fov: 60 },
   arco:   { pos: [13.0, 1.6, 12.6], at: [12.9, 1.5, 3.0], fov: 60 },
   top:    { pos: [3.5, 16, 21], at: [12.8, 0, 6.2], fov: 45 },
 };
