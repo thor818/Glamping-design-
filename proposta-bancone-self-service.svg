@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 820" width="1080" height="820" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="g" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a9d55"/></marker>
+    <marker id="o" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e07a1f"/></marker>
+  </defs>
+  <rect width="1080" height="820" fill="#ffffff"/>
+  <text x="40" y="34" font-size="22" font-weight="bold" fill="#222">Piano terra – proposta bancone self-service + cassa</text>
+  <text x="40" y="56" font-size="13" fill="#666">Schema indicativo ricavato dallo schizzo (scala ≈ 1:100, misure da verificare in loco). Nessun muro demolito.</text>
+
+  <!-- plan in metres: 1 m = 50 px -->
+  <g transform="translate(40,80) scale(50)" font-size="0.26">
+    <rect x="0" y="0" width="18.7" height="10.5" fill="#faf8f3"/>
+
+    <!-- service rooms -->
+    <rect x="0" y="0" width="4.45" height="4.75" fill="#ececec"/>
+    <rect x="4.45" y="0" width="2.75" height="3.3" fill="#ececec"/>
+    <rect x="7.2" y="0" width="2.7" height="2.67" fill="#ececec"/>
+    <rect x="12.4" y="0" width="3.45" height="2.38" fill="#ececec"/>
+    <rect x="15.85" y="0" width="2.85" height="2.38" fill="#ececec"/>
+    <rect x="0" y="4.75" width="2.4" height="5.75" fill="#f1efe9"/>
+    <g stroke="#999" stroke-width="0.03">
+      <line x1="5.2" y1="0.4" x2="6.8" y2="0.4"/><line x1="5.2" y1="0.75" x2="6.8" y2="0.75"/>
+      <line x1="5.2" y1="1.1" x2="6.8" y2="1.1"/><line x1="5.2" y1="1.45" x2="6.8" y2="1.45"/>
+      <line x1="5.2" y1="1.8" x2="6.8" y2="1.8"/><line x1="5.2" y1="2.15" x2="6.8" y2="2.15"/>
+    </g>
+    <text x="2.22" y="2.3" text-anchor="middle" font-weight="bold" fill="#444">CUCINA</text>
+    <text x="5.8" y="2.8" text-anchor="middle" fill="#666" font-size="0.22">scala</text>
+    <text x="8.55" y="1.3" text-anchor="middle" fill="#666" font-size="0.22">forno</text>
+    <text x="8.55" y="1.6" text-anchor="middle" fill="#666" font-size="0.22">a legna</text>
+    <text x="14.1" y="1.1" text-anchor="middle" fill="#444">MAGAZZINO</text>
+    <text x="17.27" y="1.1" text-anchor="middle" fill="#444">CANTINA</text>
+    <text x="1.2" y="7.6" text-anchor="middle" fill="#888" font-size="0.22">tettoia</text>
+
+    <!-- WC block (unchanged) -->
+    <rect x="2.4" y="4.95" width="5.2" height="5.55" fill="#e4e4e4" stroke="#222" stroke-width="0.1"/>
+    <text x="5" y="7.6" text-anchor="middle" fill="#555">WC / servizi</text>
+    <text x="5" y="7.95" text-anchor="middle" fill="#888" font-size="0.22">(invariati)</text>
+
+    <!-- walls -->
+    <g stroke="#222" stroke-width="0.12" fill="none" stroke-linecap="square">
+      <line x1="0" y1="0" x2="18.7" y2="0"/>
+      <line x1="0" y1="0" x2="0" y2="10.5"/>
+      <line x1="18.7" y1="0" x2="18.7" y2="5.6"/>
+      <line x1="18.7" y1="6.5" x2="18.7" y2="10.5"/>
+      <line x1="4.45" y1="0" x2="4.45" y2="3.5"/>
+      <line x1="4.45" y1="4.3" x2="4.45" y2="4.75"/>
+      <line x1="0" y1="4.75" x2="4.45" y2="4.75"/>
+      <line x1="4.45" y1="3.3" x2="7.2" y2="3.3"/>
+      <line x1="7.2" y1="0" x2="7.2" y2="3.3"/>
+      <line x1="7.2" y1="2.67" x2="9.9" y2="2.67"/>
+      <line x1="9.9" y1="0" x2="9.9" y2="2.67"/>
+      <line x1="12.4" y1="0" x2="12.4" y2="2.38"/>
+      <line x1="15.85" y1="0" x2="15.85" y2="2.38"/>
+      <line x1="12.4" y1="2.38" x2="14.9" y2="2.38"/>
+      <line x1="15.7" y1="2.38" x2="17.5" y2="2.38"/>
+      <line x1="18.3" y1="2.38" x2="18.7" y2="2.38"/>
+      <line x1="12.4" y1="2.38" x2="11.8" y2="3.56"/>
+    </g>
+    <!-- doors -->
+    <g stroke="#555" stroke-width="0.03" fill="none">
+      <path d="M4.45,3.5 L3.65,3.5 A0.8,0.8 0 0 0 4.45,4.3"/>
+      <path d="M14.9,2.38 L14.9,1.58 A0.8,0.8 0 0 1 15.7,2.38"/>
+      <path d="M17.5,2.38 L17.5,1.58 A0.8,0.8 0 0 1 18.3,2.38"/>
+    </g>
+    <text x="18.85" y="6.15" text-anchor="start" fill="#666" font-size="0.2">→ scala /</text><text x="18.85" y="6.4" fill="#666" font-size="0.2">dance</text>
+
+    <!-- existing bar to remove -->
+    <rect x="7.8" y="4.9" width="3.4" height="1.7" rx="0.35" fill="#e63946" fill-opacity="0.07" stroke="#e63946" stroke-width="0.05" stroke-dasharray="0.15 0.1"/>
+    <line x1="7.9" y1="5" x2="11.1" y2="6.5" stroke="#e63946" stroke-width="0.04"/>
+    <line x1="7.9" y1="6.5" x2="11.1" y2="5" stroke="#e63946" stroke-width="0.04"/>
+    <text x="9.5" y="7.0" text-anchor="middle" fill="#e63946" font-weight="bold" font-size="0.22">BAR ATTUALE – DA TOGLIERE</text>
+
+    <!-- new small station on old bar side -->
+    <rect x="7.6" y="7.4" width="0.6" height="2.0" fill="#8ecae6" stroke="#457b9d" stroke-width="0.04"/>
+    <text x="8.4" y="8.25" fill="#1d3557" font-size="0.22">rientro vassoi</text>
+    <text x="8.4" y="8.55" fill="#1d3557" font-size="0.22">acqua · caffè self</text>
+
+    <!-- NEW COUNTER -->
+    <rect x="12.4" y="2.38" width="6.3" height="0.9" fill="#fde7cf"/>
+    <text x="15.6" y="3.12" text-anchor="middle" fill="#b5651d" font-size="0.17">corsia personale 0,90 m – accesso a magazzino e cantina</text>
+
+    <rect x="13.0" y="3.28" width="1.9" height="0.65" fill="#f4a259"/>
+    <rect x="14.9" y="3.28" width="0.6" height="0.65" fill="#cfe3d4"/>
+    <rect x="15.5" y="3.28" width="0.9" height="0.65" fill="#a8d5ba"/>
+    <rect x="16.4" y="3.28" width="1.0" height="0.65" fill="#f6bd60"/>
+    <rect x="17.4" y="3.28" width="0.6" height="0.65" fill="#cdb4db"/>
+    <rect x="18.0" y="3.28" width="0.7" height="0.65" fill="#84a59d"/>
+    <rect x="13.0" y="3.28" width="5.7" height="0.65" fill="none" stroke="#222" stroke-width="0.05"/>
+    <line x1="13.0" y1="3.93" x2="14.9" y2="3.93" stroke="#8a4b12" stroke-width="0.1"/>
+    <rect x="14.9" y="3.93" width="3.1" height="0.22" fill="#c9c9c9" stroke="#888" stroke-width="0.02"/>
+    <g font-size="0.19" text-anchor="middle" fill="#222">
+      <text x="13.95" y="3.57" font-weight="bold">PASS CUCINA</text>
+      <text x="13.95" y="3.82" font-size="0.15">la cucina appoggia qui</text>
+      <text x="15.2" y="3.67">vassoi</text>
+      <text x="15.95" y="3.67">freddi</text>
+      <text x="16.9" y="3.67">caldi</text>
+      <text x="17.7" y="3.57" font-size="0.16">dolci</text>
+      <text x="17.7" y="3.79" font-size="0.16">bibite</text>
+      <text x="18.35" y="3.67" font-weight="bold" fill="#fff">CASSA</text>
+    </g>
+    <text x="13.75" y="4.25" text-anchor="middle" fill="#8a4b12" font-size="0.16">lato clienti chiuso (vetro)</text>
+
+    <!-- pillar -->
+    <rect x="14.48" y="4.88" width="0.35" height="0.35" fill="#222"/>
+    <text x="14.4" y="5.5" text-anchor="end" fill="#444" font-size="0.18">pilastro</text>
+    <line x1="14.65" y1="4.15" x2="14.65" y2="4.88" stroke="#d00" stroke-width="0.025"/>
+    <text x="14.55" y="4.6" text-anchor="end" fill="#d00" font-size="0.17">≈0,70 ?</text>
+
+    <!-- flows -->
+    <path d="M4.6,3.95 H11.6 L12.3,2.62 H17.9" fill="none" stroke="#e07a1f" stroke-width="0.07" stroke-dasharray="0.25 0.15" marker-end="url(#o)"/>
+    <text x="8" y="3.75" text-anchor="middle" fill="#e07a1f" font-size="0.2">percorso personale cucina</text>
+    <text x="12.1" y="4.2" text-anchor="middle" fill="#e07a1f" font-size="0.17">ingresso staff</text>
+
+    <path d="M15.3,9.6 V4.62 H18.25 V8.6" fill="none" stroke="#2a9d55" stroke-width="0.08" marker-end="url(#g)"/>
+    <text x="15.45" y="8.2" fill="#2a9d55" font-size="0.2">clienti</text>
+    <text x="15.45" y="8.45" fill="#2a9d55" font-size="0.2">(da lobby)</text>
+    <text x="18.1" y="9.1" text-anchor="end" fill="#2a9d55" font-size="0.2">ai tavoli →</text>
+
+    <text x="11.6" y="7.9" text-anchor="middle" fill="#bbb" font-size="0.3" font-weight="bold">SALA / ZONA TAVOLI</text>
+    <line x1="7.6" y1="9.8" x2="18.7" y2="9.8" stroke="#999" stroke-width="0.03" stroke-dasharray="0.2 0.12"/>
+    <text x="10.5" y="10.15" fill="#999" font-size="0.18">↓ ristorante porticato / esterno</text>
+  </g>
+
+  <!-- legend -->
+  <g font-size="13" fill="#333" transform="translate(40,640)">
+    <text x="0" y="0" font-weight="bold" font-size="15">Come funziona</text>
+    <text x="0" y="24">1. Bancone lungo ≈ 5,70 m davanti al muro di magazzino/cantina, staccato di 0,90 m: il muro resta intatto e le porte si usano dalla corsia.</text>
+    <text x="0" y="46">2. Il personale esce dalla cucina, entra nella corsia dal lato sinistro e appoggia i piatti sul PASS (chiuso verso i clienti) e sui banchi.</text>
+    <text x="0" y="68">3. Il cliente parte dal pilastro: vassoio → freddi → caldi → dolci/bibite → cassa, poi va ai tavoli. Flussi di staff e clienti non si incrociano.</text>
+    <text x="0" y="90">4. Dove c'era il bar: rientro vassoi sporchi (vicino alla cucina) + punto acqua/caffè self.</text>
+    <text x="0" y="114" fill="#d00">⚠ Da misurare: distanza muro–pilastro. Se è sotto ~3,10 m, davanti al pilastro non c'è spazio per la coda: per questo lì c'è il PASS e la fila parte dopo.</text>
+  </g>
+</svg>
