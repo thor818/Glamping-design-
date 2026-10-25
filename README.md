@@ -2,7 +2,16 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – real Buffalo Soldiers photo, entrance shelves, floor seating (v10)
+## 0. NEWEST – entrance with doors kept + bikers' storage (v11)
+
+The doors stay: the wooden door on the left of the entrance and a glazed steel door in the square doorway to the lounge (it divides the spaces but you still see through). The shelves are now storage for bikers: helmets on top, backpacks in the middle, shoes at the bottom, hooks for jackets, numbered tags. Original Buffalo Soldiers photo on the end wall.
+
+| | |
+|---|---|
+| ![Entrance](render-3d/v11-ingresso-porte-e-armadietti/1-ingresso.png) | ![Left](render-3d/v11-ingresso-porte-e-armadietti/2-porta-e-armadietti-sinistra.png) |
+| ![Right](render-3d/v11-ingresso-porte-e-armadietti/3-porta-vetro-lounge-e-armadietti-destra.png) | ![From above](render-3d/v11-ingresso-porte-e-armadietti/5-vista-dall-alto.png) |
+
+## 0a. Real Buffalo Soldiers photo, entrance shelves, floor seating (v10)
 
 Same as v9 (long bar with flap), plus: your original Buffalo Soldiers photo as a full wall at the entrance, steel-and-oak shelves on the left and right, and the lounge redone with floor seating: a low solid-oak platform under the windows with leather cushions, low oak tables, leather floor cushions and poufs. Everything chosen to last (leather, waxed canvas, solid oak, steel, sealed travertine).
 
