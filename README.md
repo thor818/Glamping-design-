@@ -2,7 +2,16 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – lounge: a few floor cushions, piano, fireplace, small dance floor (v15)
+## 0. NEWEST – piano by the fire, Saturday Night Fever floor, glazed openings (v16)
+
+Piano moved next to the fireplace. Saturday Night Fever dance floor: lit coloured squares (6 x 4, about 3 x 2 m) with a mirror ball, between the floor cushions and the piano. Outside windows of the lounge are arched (like the real ones). The square openings between sala and lounge keep glazed steel windows/doors, so the two spaces are separated.
+
+| | |
+|---|---|
+| ![Lounge](render-3d/v16-pista-saturday-night-fever/1-lounge-pista-e-pianoforte-al-camino.png) | ![From the piano](render-3d/v16-pista-saturday-night-fever/2-dal-pianoforte-verso-cuscini.png) |
+| ![Sala with glazed openings](render-3d/v16-pista-saturday-night-fever/3-sala-con-vetrate-verso-lounge.png) | ![From above](render-3d/v16-pista-saturday-night-fever/4-vista-dall-alto.png) |
+
+## 0a. Lounge: a few floor cushions, piano, fireplace, small dance floor (v15)
 
 Only a few Mah Jong-style cushions by the fireplace, the grand piano by the entrance, and a small oak parquet dance floor (about 3 x 1.9 m) with a brass edge, a mirror ball and warm spotlights between them.
 
