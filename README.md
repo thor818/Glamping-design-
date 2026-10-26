@@ -2,7 +2,23 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – entrance with doors kept + bikers' storage (v11)
+## 0. NEWEST – Ligurian ground floor (v12) + upstairs bedrooms
+
+**Ground floor:** back to the Ligurian style of the beginning, but with square openings (no arches), less stone (only the fireplace), light wooden beams, ochre bar wall with green-shutter doors, long walnut bar with slate top and the lift-up flap, two very long shared tables plus one by the bar, natural straw chairs, iron chandeliers, kilim floor seating in the lounge, Buffalo Soldiers photo and bikers' storage at the entrance.
+
+| | |
+|---|---|
+| ![Bar](render-3d/v12-ligure-piano-terra/1-bar.png) | ![Sala](render-3d/v12-ligure-piano-terra/2-sala-tavoli-lunghi.png) |
+| ![Lounge](render-3d/v12-ligure-piano-terra/3-lounge.png) | ![Entrance](render-3d/v12-ligure-piano-terra/4-ingresso.png) |
+
+**Bedrooms (example, upstairs plan still needed):** old restored beds with modern pieces. Room A: antique iron bed with brass knobs, linen, modern oak bedside, antique wardrobe, rattan armchair. Room B: carved walnut bed, majolica-tile headboard strip, modern brass wall lamps, antique chest, oak desk, open clothes rail for bikers' gear. Terracotta floors, beams, square windows with green shutters.
+
+| | |
+|---|---|
+| ![Room A](render-3d/camere-piano-superiore/1-camera-A-letto-ferro.png) | ![Room B](render-3d/camere-piano-superiore/3-camera-B-letto-legno.png) |
+| ![Room A window](render-3d/camere-piano-superiore/2-camera-A-finestra.png) | ![Room B desk](render-3d/camere-piano-superiore/4-camera-B-scrivania.png) |
+
+## 0a. Entrance with doors kept + bikers' storage (v11)
 
 The doors stay: the wooden door on the left of the entrance and a glazed steel door in the square doorway to the lounge (it divides the spaces but you still see through). The shelves are now storage for bikers: helmets on top, backpacks in the middle, shoes at the bottom, hooks for jackets, numbered tags. Original Buffalo Soldiers photo on the end wall.
 
