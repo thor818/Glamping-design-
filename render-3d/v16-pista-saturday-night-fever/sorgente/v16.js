@@ -583,7 +583,7 @@ for (let x = 8.3, k = 0; x < 11.8; x += 1.2, k++) {
   if (k % 2 === 0) { const b = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.6, 20), PM()); b.rotation.z = Math.PI / 2; b.position.set(x + 0.6, 0.5, 12.75); b.castShadow = true; scene.add(b); } }
 for (const [x, z] of [[8.6, 11.0], [9.9, 11.0]]) { soft(x, x + 1.0, 0, 0.18, z, z + 0.85, PM()); soft(x + 0.02, x + 0.98, 0.18, 0.34, z + 0.02, z + 0.83, quilt(plainCols[Math.floor(rnd() * 4)])); }
 // SATURDAY NIGHT FEVER DANCE FLOOR – coloured lit squares (about 3 x 2 m) between cushions and piano
-{ const X0 = 12.2, Z0 = 10.5, N = 6, R = 4, S = 0.5, cols = ['#ff3b8d', '#ffd23f', '#3ad1ff', '#7cff6b', '#ff8a2a', '#b56bff', '#ffffff'];
+{ const X0 = 12.2, Z0 = 10.5, N = 6, R = 4, S = 0.5, cols = ['#e0157a', '#f5b800', '#0aa6e6', '#2fc94a', '#f05a14', '#8a3be8', '#f2f2f2'];
   box(X0 - 0.05, X0 + N * S + 0.05, 0, 0.06, Z0 - 0.05, Z0 + R * S + 0.05, M('#111', { metalness: 0.6, roughness: 0.3 }));
   for (let i = 0; i < N; i++) for (let j = 0; j < R; j++) { const c = cols[(i * 3 + j * 2 + (i * j) % 3) % cols.length];
     const t = new THREE.Mesh(new THREE.BoxGeometry(S - 0.04, 0.02, S - 0.04), new THREE.MeshBasicMaterial({ color: c, toneMapped: false }));
