@@ -21,7 +21,7 @@ Same Ligurian ground floor as v12, but lighter and more modern: no stone at all 
 | ![Modern room](render-3d/camere-piano-superiore/1-camera-moderna-letto-a-scomparsa.png) | ![Painted Italian room](render-3d/camere-piano-superiore/2-camera-italiana-dipinta-letto.png) |
 | ![Dresser, mirror, blue cabinet](render-3d/camere-piano-superiore/3-camera-italiana-comò-specchio-vetrina.png) | ![From above](render-3d/camere-piano-superiore/4-camere-dall-alto.png) |
 
-**Outside:** three Ligurian facade colours with white frames and green shutters.
+**Outside:** four bright Ligurian facade colours (yellow, Portofino red, bright orange, Camogli pink) with white frames and bright green shutters.
 
 ![Facade colours](render-3d/esterno-colori/0-confronto-colori.png)
 

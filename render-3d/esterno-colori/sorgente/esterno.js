@@ -343,9 +343,9 @@ function roundTable(x, z, r, h, m) { cyl(x, z, r, h - 0.05, h, m, 40); cyl(x, z,
 
 // ================================================================ EXTERIOR – Ligurian facade colours
 const HS = 3.2;
-const COL = { giallo: '#e2b33f', rosso: '#b8442d', arancio: '#d9733a' }[VIEW.split('-')[1] || 'giallo'];
-const facade = T(rep(cv(256, 256, (g, w, h) => { g.fillStyle = COL; g.fillRect(0, 0, w, h); for (let i = 0; i < 900; i++) { g.fillStyle = `rgba(${rnd() > 0.5 ? '255,255,255' : '80,40,20'},${rnd() * 0.06})`; g.beginPath(); g.arc(rnd() * w, rnd() * h, 2 + rnd() * 18, 0, 7); g.fill(); } }), 3, 2), { roughness: 0.95 });
-const trim = M('#f6f1e6', { roughness: 0.8 }), shut = M('#3f5f48', { roughness: 0.6 }), roofM = M('#b5563c', { roughness: 0.85 });
+const COL = { giallo: '#ffc21a', rosso: '#e0352a', arancio: '#ff7a1f', rosa: '#f08a8a' }[VIEW.split('-')[1] || 'giallo'];
+const facade = T(rep(cv(256, 256, (g, w, h) => { g.fillStyle = COL; g.fillRect(0, 0, w, h); for (let i = 0; i < 900; i++) { g.fillStyle = `rgba(${rnd() > 0.5 ? '255,255,255' : '80,40,20'},${rnd() * 0.03})`; g.beginPath(); g.arc(rnd() * w, rnd() * h, 2 + rnd() * 18, 0, 7); g.fill(); } }), 3, 2), { roughness: 0.95, emissive: COL, emissiveIntensity: 0.12 });
+const trim = M('#ffffff', { roughness: 0.7 }), shut = M('#2e8a4e', { roughness: 0.5 }), roofM = M('#d2552f', { roughness: 0.8 });
 // ground + garden
 { const g = new THREE.Mesh(new THREE.PlaneGeometry(80, 80), M('#7e8f58', { roughness: 1 })); g.rotation.x = -Math.PI / 2; g.receiveShadow = true; scene.add(g);
   const p = new THREE.Mesh(new THREE.PlaneGeometry(24, 6), T(texOpus, { roughness: 0.8 })); texOpus.repeat.set(6, 1.5); p.rotation.x = -Math.PI / 2; p.position.set(9, 0.01, 13.5); p.receiveShadow = true; scene.add(p); }
@@ -386,7 +386,7 @@ wallPlane('S', 9, -30, 220, -2, 45, new THREE.MeshBasicMaterial({ toneMapped: fa
   g.fillStyle = '#6f8550'; g.beginPath(); g.moveTo(0, h); for (let x = 0; x <= w; x += 20) g.lineTo(x, h * (0.75 + 0.06 * Math.sin(x / 31))); g.lineTo(w, h); g.fill(); }) }));
 scene.background = new THREE.Color('#9cc6ea');
 scene.add(new THREE.HemisphereLight('#eaf4ff', '#6b6a4a', 0.9));
-const sun = new THREE.DirectionalLight('#fff1d8', 2.6); sun.position.set(14, 20, 26); sun.target.position.set(9, 0, 6); scene.add(sun.target);
+const sun = new THREE.DirectionalLight('#fff6e6', 3.2); sun.position.set(14, 20, 26); sun.target.position.set(9, 0, 6); scene.add(sun.target);
 sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -25, right: 25, top: 25, bottom: -25, near: 1, far: 90 }); sun.shadow.bias = -0.0005; scene.add(sun);
 const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 300);
 if (VIEW.startsWith('alto')) { camera.position.set(-10, 22, 34); camera.lookAt(9, 2, 6); } else { camera.position.set(2.5, 2.2, 30); camera.lookAt(10, 3.6, 8); }
