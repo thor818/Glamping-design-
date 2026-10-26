@@ -2,7 +2,16 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – two bedroom types + house colours outside
+## 0. NEWEST – ground floor: Ligurian, a bit more modern (v13)
+
+Same Ligurian ground floor as v12, but lighter and more modern: no stone at all (smooth plaster fireplace), bleached light beams, oak long tables and benches, big linen drum pendants over the tables. No arches. Bedrooms now have wooden floors.
+
+| | |
+|---|---|
+| ![Bar](render-3d/v13-ligure-moderno/1-bar.png) | ![Sala](render-3d/v13-ligure-moderno/2-sala.png) |
+| ![Lounge](render-3d/v13-ligure-moderno/3-lounge.png) | ![Entrance](render-3d/v13-ligure-moderno/4-ingresso.png) |
+
+## 0a. Two bedroom types + house colours outside
 
 **Modern room:** wall bed that folds into a cabinet, green sofa in front by day, built-in wardrobe, glass shower with a coloured wall and floating oak vanity.
 **Authentic Italian painted room:** your white distressed carved bed and bedside tables with marble tops, the marble dresser with the gold oval mirror, the blue painted cabinet, an orange armchair, kilim rug, iron chandelier.

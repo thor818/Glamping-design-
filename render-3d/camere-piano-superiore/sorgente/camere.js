@@ -346,7 +346,10 @@ const showCeiling = !VIEW.startsWith('top');
 // floor: terracotta tiles (cotto)
 const cotto = rep(cv(512, 512, (g, w, h) => { const n = 4, s = w / n; for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) { g.fillStyle = `hsl(${16 + rnd() * 8},${42 + rnd() * 10}%,${52 + rnd() * 8}%)`; g.fillRect(i * s, j * s, s, s); }
   g.strokeStyle = '#d9c3a8'; g.lineWidth = 5; for (let i = 0; i <= n; i++) { g.beginPath(); g.moveTo(i * s, 0); g.lineTo(i * s, h); g.stroke(); g.beginPath(); g.moveTo(0, i * s); g.lineTo(w, i * s); g.stroke(); } }), 1, 1);
-{ const f = new THREE.Mesh(new THREE.PlaneGeometry(10, 5.2), T(cotto, { roughness: 0.7 })); cotto.repeat.set(10 / 1.6, 5.2 / 1.6); f.rotation.x = -Math.PI / 2; f.position.set(5, 0, 2.6); f.receiveShadow = true; scene.add(f); }
+const plank = rep(cv(512, 512, (g, w, h) => { const n = 8, ph = h / n; for (let r = 0; r < n; r++) { let x = -rnd() * 200; while (x < w) { const L = 180 + rnd() * 220; g.fillStyle = `hsl(${30 + rnd() * 6},${38 + rnd() * 10}%,${52 + rnd() * 10}%)`; g.fillRect(x, r * ph, L, ph);
+  for (let k = 0; k < 6; k++) { g.strokeStyle = `rgba(110,70,35,${0.08 + rnd() * 0.15})`; g.lineWidth = 1; const yy = r * ph + rnd() * ph; g.beginPath(); g.moveTo(x, yy); g.lineTo(x + L, yy + (rnd() - 0.5) * 4); g.stroke(); }
+  g.fillStyle = 'rgba(60,35,15,0.45)'; g.fillRect(x, r * ph, 2, ph); x += L; } g.fillStyle = 'rgba(60,35,15,0.35)'; g.fillRect(0, r * ph, w, 2); } }), 1, 1);
+{ const f = new THREE.Mesh(new THREE.PlaneGeometry(10, 5.2), T(plank, { roughness: 0.6 })); plank.repeat.set(10 / 2.4, 5.2 / 2.4); f.rotation.x = -Math.PI / 2; f.position.set(5, 0, 2.6); f.receiveShadow = true; scene.add(f); }
 // walls: room A 0..4.8, room B 5.0..10 ; z 0 (window wall) .. 5.2 (door wall)
 const wallW = T(texPlaster, { color: '#f7f3ec' }), wallA = T(texPlaster, { color: '#f4f0e8' }), wallB = T(texPlaster, { color: '#f6f2ea' });
 box(-0.2, 10.2, 0, HS, 5.2, 5.4, wallW); box(-0.2, 0, 0, HS, 0, 5.2, wallW); box(10, 10.2, 0, HS, 0, 5.2, wallW); box(4.8, 5.0, 0, HS, 0, 5.2, wallW);
