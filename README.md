@@ -2,7 +2,15 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – lounge with big floor cushions (Mah Jong style, v14)
+## 0. NEWEST – lounge: a few floor cushions, piano, fireplace, small dance floor (v15)
+
+Only a few Mah Jong-style cushions by the fireplace, the grand piano by the entrance, and a small oak parquet dance floor (about 3 x 1.9 m) with a brass edge, a mirror ball and warm spotlights between them.
+
+| | |
+|---|---|
+| ![Lounge](render-3d/v15-lounge-piano-camino-pista/1-lounge-pista-e-camino.png) | ![Dance floor and piano](render-3d/v15-lounge-piano-camino-pista/2-pista-e-pianoforte.png) |
+
+## 0a. Lounge with big floor cushions (Mah Jong style, v14)
 
 Like the Roche Bobois Mah Jong sofa: long modular floor cushions (base + seat + back + bolsters) in colourful patchwork mixed with quilted plain ones, a 7 m run under the windows, an L-return by the entrance and free islands in the middle, low brass trays as tables. Rest of the ground floor as v13.
 
