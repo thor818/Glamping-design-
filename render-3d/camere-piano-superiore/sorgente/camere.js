@@ -333,6 +333,13 @@ function chandelier(x, z, y, r = 0.38, n = 6, lightI = 2.2) {
 
 const oakM = T(rep(cv(512, 128, (g, w, h) => { g.fillStyle = '#b98d5e'; g.fillRect(0, 0, w, h);
   for (let i = 0; i < 120; i++) { g.strokeStyle = `rgba(110,70,35,${0.08 + rnd() * 0.18})`; g.lineWidth = 0.5 + rnd() * 1.5; const y = rnd() * h; g.beginPath(); g.moveTo(0, y); g.bezierCurveTo(w / 3, y + 5 * rnd(), w * 0.6, y - 5 * rnd(), w, y + 2); g.stroke(); } }), 1, 1), { roughness: 0.55 });
+const texBoucle = (base) => rep(cv(128, 128, (g, w, h) => { g.fillStyle = base; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 900; i++) { g.fillStyle = `rgba(${rnd() > 0.5 ? '255,255,255' : '0,0,0'},${rnd() * 0.09})`; g.beginPath(); g.arc(rnd() * w, rnd() * h, 1 + rnd() * 2.5, 0, 7); g.fill(); } }), 4, 4);
+function boucle(c) { return T(texBoucle(c), { roughness: 1 }); }
+function floorLantern(x, z, h = 1.2) { cyl(x, z, 0.012, 0, 0.3, M('#222'), 6);
+  const s = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, h - 0.3, 32), new THREE.MeshStandardMaterial({ color: '#fbf6ec', emissive: '#ffe1b5', emissiveIntensity: 0.9 })); s.position.set(x, 0.3 + (h - 0.3) / 2, z); scene.add(s);
+  const l = new THREE.PointLight('#ffd09a', 1.3, 0, 2); l.position.set(x, h * 0.7, z); scene.add(l); }
+function roundTable(x, z, r, h, m) { cyl(x, z, r, h - 0.05, h, m, 40); cyl(x, z, r * 0.45, 0, h - 0.05, m, 32, r * 0.35); }
 // ================================================================ BEDROOMS (upstairs) – two rooms side by side, Ligurian, old + modern
 const HS = 2.9, HP = 2.9;
 const showCeiling = !VIEW.startsWith('top');
@@ -341,7 +348,7 @@ const cotto = rep(cv(512, 512, (g, w, h) => { const n = 4, s = w / n; for (let i
   g.strokeStyle = '#d9c3a8'; g.lineWidth = 5; for (let i = 0; i <= n; i++) { g.beginPath(); g.moveTo(i * s, 0); g.lineTo(i * s, h); g.stroke(); g.beginPath(); g.moveTo(0, i * s); g.lineTo(w, i * s); g.stroke(); } }), 1, 1);
 { const f = new THREE.Mesh(new THREE.PlaneGeometry(10, 5.2), T(cotto, { roughness: 0.7 })); cotto.repeat.set(10 / 1.6, 5.2 / 1.6); f.rotation.x = -Math.PI / 2; f.position.set(5, 0, 2.6); f.receiveShadow = true; scene.add(f); }
 // walls: room A 0..4.8, room B 5.0..10 ; z 0 (window wall) .. 5.2 (door wall)
-const wallW = T(texPlaster, { color: '#f7f3ec' }), wallA = T(texPlaster, { color: '#e9d2b4' }), wallB = T(texPlaster, { color: '#cfdccf' });
+const wallW = T(texPlaster, { color: '#f7f3ec' }), wallA = T(texPlaster, { color: '#f4f0e8' }), wallB = T(texPlaster, { color: '#f6f2ea' });
 box(-0.2, 10.2, 0, HS, 5.2, 5.4, wallW); box(-0.2, 0, 0, HS, 0, 5.2, wallW); box(10, 10.2, 0, HS, 0, 5.2, wallW); box(4.8, 5.0, 0, HS, 0, 5.2, wallW);
 // headboard walls painted (Ligurian colours): A warm sand-pink, B sage
 wallPlane('E', 0.005, 2.6, 5.2, 0, HS, wallA); wallPlane('W', 9.995, 2.6, 5.2, 0, HS, wallB);
@@ -362,70 +369,80 @@ if (showCeiling) { box(-0.2, 10.2, HS, HS + 0.1, -0.2, 5.4, T(texPlaster, { colo
 for (const x of [3.9, 9.1]) { box(x - 0.45, x + 0.45, 0, 2.1, 5.18, 5.2, walnutM); box(x - 0.52, x + 0.52, 2.1, 2.16, 5.17, 5.2, M('#efe9df')); cyl(x + 0.33, 5.16, 0.025, 1.0, 1.04, brassM, 10); }
 const linenW = T(texLinen, { roughness: 1 });
 function pillow(x, y, z, w, c) { const p = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.4, w), c); p.position.set(x, y, z); p.rotation.z = -0.25; p.castShadow = true; scene.add(p); }
-// ---------- ROOM A: restored antique iron bed (Props) + modern linen, wardrobe, rattan chair
-{ const xb = 0.05, zc = 2.6, L = 2.05, W = 1.65, iron = M('#2b2b2b', { roughness: 0.45, metalness: 0.6 }), brass = brassM;
-  // iron headboard and footboard with bars and brass knobs
-  for (const [xh, hh] of [[xb + 0.02, 1.35], [xb + L, 0.95]]) {
-    for (const dz of [-W / 2, W / 2]) { cyl(xh, zc + dz, 0.025, 0, hh, iron, 10); const k = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 10), brass); k.position.set(xh, hh + 0.04, zc + dz); scene.add(k); }
-    rod([xh, hh - 0.05, zc - W / 2], [xh, hh - 0.05, zc + W / 2], 0.018, iron); rod([xh, 0.45, zc - W / 2], [xh, 0.45, zc + W / 2], 0.015, iron);
-    for (let i = 1; i < 9; i++) { const z = zc - W / 2 + i * W / 9; rod([xh, 0.45, z], [xh, hh - 0.05, z], 0.008, iron); }
-    if (hh > 1) { const arc = new THREE.Mesh(new THREE.TorusGeometry(W / 2, 0.016, 8, 30, Math.PI), iron); arc.rotation.y = Math.PI / 2; arc.scale.y = 0.35; arc.position.set(xh, hh - 0.05, zc); scene.add(arc); } }
-  box(xb + 0.05, xb + L - 0.03, 0.3, 0.55, zc - W / 2 + 0.03, zc + W / 2 - 0.03, linenW);
-  box(xb + 0.5, xb + L, 0.55, 0.6, zc - W / 2 - 0.02, zc + W / 2 + 0.02, T(texLinen, { color: '#e8dccb', roughness: 1 }));
-  box(xb + 1.4, xb + 1.75, 0.6, 0.62, zc - W / 2 - 0.05, zc + W / 2 + 0.05, T(kilim('#b5482f', '#2a2522', '#e3c48a'), { roughness: 1 }));
-  pillow(xb + 0.25, 0.75, zc - 0.4, 0.6, linenW); pillow(xb + 0.25, 0.75, zc + 0.4, 0.6, linenW); pillow(xb + 0.4, 0.7, zc, 0.4, T(texStripe));
-  // modern bedside: oak cube + ceramic lamp; antique on the other side
-  box(0.1, 0.55, 0, 0.5, 0.9, 1.35, oakM); tableLamp(0.33, 0.5, 1.12);
-  box(0.1, 0.55, 0, 0.6, 3.85, 4.3, walnutM); tableLamp(0.33, 0.6, 4.08);
-  // framed photo above bed
-  wallPlane('E', 0.01, 2.6, 1.2, 1.55, 2.3, T(photoBW(2), { roughness: 0.6 }));
-  // antique walnut wardrobe from the house, restored
-  box(2.9, 4.75, 0, 2.2, 4.62, 5.18, walnutM); wallPlane('N', 3.825, 4.615, 1.75, 0.15, 2.05, new THREE.MeshStandardMaterial({ map: panelTex(2, 3), roughness: 0.55 }));
-  box(2.85, 4.8, 2.2, 2.3, 4.58, 5.18, M('#3b2616'));
-  // rattan armchair + modern floor lamp by the window
-  { const rt = T(texStraw, { roughness: 0.9 }); cyl(3.6, 1.2, 0.4, 0.15, 0.42, rt, 24); const back = new THREE.Mesh(new THREE.TorusGeometry(0.36, 0.08, 10, 24, Math.PI), rt); back.rotation.x = Math.PI / 2; back.rotation.z = Math.PI * 0.75; back.position.set(3.6, 0.55, 1.2); scene.add(back);
-    for (const [dx, dz] of [[-0.25, -0.25], [0.25, -0.25], [-0.25, 0.25], [0.25, 0.25]]) cyl(3.6 + dx, 1.2 + dz, 0.015, 0, 0.15, oakM, 8);
-    const c = new THREE.Mesh(new THREE.CylinderGeometry(0.33, 0.33, 0.08, 24), linenW); c.position.set(3.6, 0.46, 1.2); scene.add(c); }
-  floorLamp(4.35, 0.6);
-  { const m = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 2.0), T(kilim('#c9b48a', '#6b5843', '#efe7d6'), { roughness: 1 })); m.rotation.x = -Math.PI / 2; m.position.set(2.75, 0.006, 2.6); scene.add(m); }
-  // hooks rail for bikers' gear
-  box(1.5, 2.7, 1.7, 1.75, 5.17, 5.2, oakM); for (let x = 1.65; x < 2.7; x += 0.3) cyl(x, 5.12, 0.012, 1.6, 1.72, brassM, 8);
-  box(1.6, 2.6, 0, 0.45, 4.8, 5.15, oakM);
-  const pl = new THREE.Mesh(new THREE.SphereGeometry(0.25, 24, 16), new THREE.MeshStandardMaterial({ color: '#fbf6ec', emissive: '#ffe1b5', emissiveIntensity: 0.8 })); pl.position.set(2.4, 2.35, 2.6); scene.add(pl); cyl(2.4, 2.6, 0.004, 2.6, HS, M('#222'), 6);
-  const l = new THREE.PointLight('#ffd9a6', 1.8, 0, 2); l.position.set(2.4, 2.2, 2.6); scene.add(l); }
-// ---------- ROOM B: carved antique wooden bed + modern pieces, blue-white Ligurian accents
-{ const xb = 9.95, zc = 2.6, L = 2.05, W = 1.65;
-  box(xb - 0.12, xb, 0, 1.45, zc - W / 2 - 0.05, zc + W / 2 + 0.05, walnutM); wallPlane('W', xb - 0.125, zc, W, 0.5, 1.35, new THREE.MeshStandardMaterial({ map: panelTex(2, 1), roughness: 0.55 }));
-  { const top = new THREE.Shape(); top.moveTo(-W / 2 - 0.05, 0); top.quadraticCurveTo(0, 0.45, W / 2 + 0.05, 0); const g = new THREE.ExtrudeGeometry(top, { depth: 0.12, bevelEnabled: false }); const m = new THREE.Mesh(g, walnutM); m.rotation.y = -Math.PI / 2; m.position.set(xb, 1.45, zc); scene.add(m); }
-  box(xb - L, xb - L + 0.08, 0, 0.7, zc - W / 2 - 0.05, zc + W / 2 + 0.05, walnutM);
-  box(xb - L + 0.08, xb - 0.12, 0.25, 0.32, zc - W / 2, zc + W / 2, walnutM);
-  box(xb - L + 0.08, xb - 0.14, 0.32, 0.55, zc - W / 2 + 0.03, zc + W / 2 - 0.03, linenW);
-  box(xb - L + 0.08, xb - 0.6, 0.55, 0.6, zc - W / 2 - 0.02, zc + W / 2 + 0.02, T(rep(cv(64, 64, (g, w, h) => { g.fillStyle = '#f2efe8'; g.fillRect(0, 0, w, h); g.fillStyle = '#2d5d8a'; for (let i = 0; i < 64; i += 16) g.fillRect(0, i, w, 4); }), 4, 4), { roughness: 1 }));
-  pillow(xb - 0.3, 0.75, zc - 0.4, 0.6, linenW); pillow(xb - 0.3, 0.75, zc + 0.4, 0.6, linenW);
-  // modern: slim oak benches as bedside + wall lamps in brass
-  for (const z of [1.25, 3.95]) { box(9.45, 9.92, 0, 0.45, z - 0.22, z + 0.22, oakM); cyl(9.92, z, 0.06, 1.25, 1.27, brassM, 16); const s = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.12, 0.15, 16, 1, true), new THREE.MeshStandardMaterial({ color: '#f1e6cf', emissive: '#ffcf8a', emissiveIntensity: 0.5, side: THREE.DoubleSide })); s.position.set(9.82, 1.35, z); scene.add(s);
-    const l = new THREE.PointLight('#ffc98a', 0.9, 0, 2); l.position.set(9.75, 1.3, z); scene.add(l); }
-  // majolica tiles behind as headboard accent
-  wallPlane('W', 9.99, zc, 2.1, 1.45, 2.1, T(texMajolica, { roughness: 0.3 })); texMajolica.repeat.set(2.1 / 0.3, 0.65 / 0.3);
-  // antique chest at foot of bed, modern desk + chair by window
-  box(7.2, 7.75, 0, 0.5, 1.95, 3.25, walnutM); box(7.18, 7.77, 0.5, 0.54, 1.93, 3.27, M('#3b2616'));
-  box(5.3, 6.6, 0.74, 0.78, 0.35, 0.95, oakM); for (const [x, z] of [[5.35, 0.4], [6.55, 0.4], [5.35, 0.9], [6.55, 0.9]]) box(x - 0.02, x + 0.02, 0, 0.74, z - 0.02, z + 0.02, ironM);
-  straw(5.95, 1.35, Math.PI, 0); tableLamp(6.3, 0.78, 0.6);
-  wallPlane('E', 5.005, 2.6, 0.9, 1.0, 2.6, M('#c9a24a', { metalness: 0.9, roughness: 0.3 })); wallPlane('E', 5.01, 2.6, 0.8, 1.05, 2.55, M('#b7c4c8', { metalness: 0.9, roughness: 0.05 }));
-  { const m = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 2.0), T(kilim('#3c4a5e', '#c9b48a', '#efe7d6'), { roughness: 1 })); m.rotation.x = -Math.PI / 2; m.position.set(7.4, 0.006, 2.6); scene.add(m); }
-  // clothes rail (open, modern) for bikers' gear
-  rod([5.4, 1.8, 4.85], [6.8, 1.8, 4.85], 0.015, ironM); rod([5.4, 0, 4.85], [5.4, 1.8, 4.85], 0.015, ironM); rod([6.8, 0, 4.85], [6.8, 1.8, 4.85], 0.015, ironM);
-  box(5.4, 6.8, 0, 0.3, 4.65, 5.05, oakM);
-  for (let i = 0; i < 4; i++) box(5.6 + i * 0.32, 5.62 + i * 0.32 + 0.02, 1.0, 1.78, 4.7, 5.0, M(['#efe6d6', '#3b4a5a', '#c9b48a', '#2b2b2b'][i], { roughness: 0.9 }));
-  chandelier(7.5, 2.6, 2.3, 0.35, 6, 1.6); }
+// ---------- ROOM A – MODERN: wall bed folds up into a cabinet, sofa in front by day, coloured shower
+{ const panel = M('#f4f1ea', { roughness: 0.5 }), green = M('#8a9a5b', { roughness: 0.6 });
+  // wall-bed cabinet against x=0 wall (2.2 wide, 2.3 high)
+  box(0.0, 0.45, 0, 2.3, 1.5, 3.7, panel);
+  wallPlane('E', 0.452, 2.6, 2.2, 0.05, 2.25, T(cv(512, 512, (g, w, h) => { g.fillStyle = '#f4f1ea'; g.fillRect(0, 0, w, h); g.fillStyle = '#8a9a5b'; g.fillRect(0, 0, w, h * 0.22); g.fillStyle = '#d9c7a5'; g.fillRect(w * 0.62, h * 0.22, w * 0.38, h * 0.3);
+    g.strokeStyle = 'rgba(0,0,0,0.15)'; g.lineWidth = 3; g.strokeRect(4, 4, w - 8, h - 8); g.beginPath(); g.moveTo(0, h * 0.22); g.lineTo(w, h * 0.22); g.moveTo(w / 2, h * 0.22); g.lineTo(w / 2, h); g.stroke(); }), { roughness: 0.5 }));
+  box(0.45, 0.75, 1.15, 1.18, 1.6, 3.6, oakM); // shelf on top of sofa back
+  // sofa in front (green, like your picture)
+  const sf = boucle('#7f8f4e'); box(0.5, 1.4, 0.15, 0.45, 1.65, 3.55, sf); box(0.5, 0.75, 0.45, 0.9, 1.65, 3.55, sf); box(0.5, 1.4, 0.45, 0.65, 1.55, 1.75, sf); box(0.5, 1.4, 0.45, 0.65, 3.45, 3.65, sf);
+  for (const z of [2.1, 2.6, 3.1]) { const k = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.38, 0.4), boucle(['#efe6d6', '#d8c7aa', '#efe6d6'][Math.round((z - 2.1) * 2)])); k.position.set(0.85, 0.66, z); k.rotation.z = -0.2; scene.add(k); }
+  // low oak table + rug
+  roundTable(2.2, 2.6, 0.38, 0.4, oakM);
+  { const m = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 2.4), boucle('#d8c7aa')); m.rotation.x = -Math.PI / 2; m.position.set(1.8, 0.006, 2.6); scene.add(m); }
+  // ensuite: glass shower with orange back wall + floating oak vanity, round mirror
+  box(3.3, 4.8, 0, HS, 3.5, 3.55, M('#efe9df'));
+  box(3.35, 4.75, 0.02, 2.1, 3.56, 3.58, new THREE.MeshPhysicalMaterial({ color: '#e0f0f4', transparent: true, opacity: 0.2 }), false);
+  wallPlane('S', 4.05, 3.501, 1.4, 0, 2.3, M('#d9764a', { roughness: 0.4 }));
+  box(3.4, 4.7, 0.95, 1.0, 3.6, 4.6, M('#efe9df')); cyl(3.6, 4.0, 0.03, 0, 2.1, M('#d9764a', { roughness: 0.4 }), 10);
+  // modern wardrobe built-in (white push doors) on door wall, bike hook
+  box(0.0, 1.8, 0, 2.4, 4.6, 5.18, panel); for (const x of [0.6, 1.2]) box(x - 0.005, x + 0.005, 0.05, 2.35, 4.59, 4.6, M('#ccc'));
+  wallPlane('E', 0.01, 0.75, 1.0, 1.4, 2.1, T(photoBW(1), { roughness: 0.6 }));
+  floorLantern(1.0, 0.6, 1.4);
+  const pl = new THREE.Mesh(new THREE.SphereGeometry(0.25, 24, 16), new THREE.MeshStandardMaterial({ color: '#fbf6ec', emissive: '#ffe1b5', emissiveIntensity: 0.8 })); pl.position.set(2.2, 2.35, 2.4); scene.add(pl); cyl(2.2, 2.4, 0.004, 2.6, HS, M('#222'), 6);
+  const l = new THREE.PointLight('#ffd9a6', 2.0, 0, 2); l.position.set(2.2, 2.2, 2.4); scene.add(l); }
+// ---------- ROOM B – AUTHENTIC ITALIAN, PAINTED (your white carved bed, marble dresser, gold mirror, blue cabinet)
+function carvedPanelTex(base, accent) { return cv(1024, 512, (g, w, h) => { g.fillStyle = base; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 260; i++) { g.fillStyle = `rgba(110,60,30,${0.15 + rnd() * 0.4})`; g.beginPath(); g.ellipse(rnd() * w, rnd() * h, 2 + rnd() * 9, 1 + rnd() * 3, rnd() * 3, 0, 7); g.fill(); }
+  for (const cx of [w * 0.17, w * 0.5, w * 0.83]) { const rw = cx === w * 0.5 ? w * 0.18 : w * 0.13;
+    g.strokeStyle = 'rgba(0,0,0,0.18)'; g.lineWidth = 7; g.beginPath(); g.ellipse(cx, h * 0.55, rw, h * 0.32, 0, 0, 7); g.stroke(); g.strokeStyle = 'rgba(255,255,255,0.7)'; g.lineWidth = 4; g.beginPath(); g.ellipse(cx, h * 0.55, rw - 10, h * 0.32 - 10, 0, 0, 7); g.stroke();
+    for (let k = 0; k < 10; k++) { const a = k * Math.PI / 5; g.strokeStyle = 'rgba(0,0,0,0.12)'; g.lineWidth = 3; g.beginPath(); g.moveTo(cx, h * 0.55); g.lineTo(cx + Math.cos(a) * rw * 0.8, h * 0.55 + Math.sin(a) * h * 0.26); g.stroke(); }
+    g.fillStyle = accent; g.beginPath(); g.arc(cx, h * 0.55, 22, 0, 7); g.fill(); g.strokeStyle = 'rgba(0,0,0,0.25)'; g.lineWidth = 3; g.stroke(); } }); }
+{ const xb = 9.95, zc = 2.6, L = 2.05, W = 1.75, white = '#efe9dc', wm = M(white, { roughness: 0.6 });
+  // headboard: curvy carved shape
+  { const sh = new THREE.Shape(); const hw = W / 2 + 0.1; sh.moveTo(-hw, 0); sh.lineTo(-hw, 0.95); sh.bezierCurveTo(-hw * 0.7, 1.15, -hw * 0.35, 1.0, -0.15, 1.2); sh.quadraticCurveTo(0, 1.38, 0.15, 1.2); sh.bezierCurveTo(hw * 0.35, 1.0, hw * 0.7, 1.15, hw, 0.95); sh.lineTo(hw, 0); sh.lineTo(-hw, 0);
+    const g = new THREE.ExtrudeGeometry(sh, { depth: 0.07, bevelEnabled: true, bevelThickness: 0.02, bevelSize: 0.02, bevelSegments: 2 });
+    const uv = g.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, (uv.getX(i) + hw) / (2 * hw), uv.getY(i) / 1.38);
+    const m = new THREE.Mesh(g, [T(carvedPanelTex(white, '#f7f2e8'), { roughness: 0.6 }), wm]); m.rotation.y = -Math.PI / 2; m.position.set(xb - 0.02, 0, zc); m.castShadow = true; scene.add(m);
+    const fsh = new THREE.Shape(); fsh.moveTo(-hw, 0); fsh.lineTo(-hw, 0.62); fsh.bezierCurveTo(-hw * 0.5, 0.72, -0.2, 0.6, 0, 0.7); fsh.bezierCurveTo(0.2, 0.6, hw * 0.5, 0.72, hw, 0.62); fsh.lineTo(hw, 0); fsh.lineTo(-hw, 0);
+    const fg = new THREE.ExtrudeGeometry(fsh, { depth: 0.06, bevelEnabled: true, bevelThickness: 0.02, bevelSize: 0.02, bevelSegments: 2 }); const fuv = fg.attributes.uv; for (let i = 0; i < fuv.count; i++) fuv.setXY(i, (fuv.getX(i) + hw) / (2 * hw), fuv.getY(i) / 0.72);
+    const fm = new THREE.Mesh(fg, [T(carvedPanelTex(white, '#f7f2e8'), { roughness: 0.6 }), wm]); fm.rotation.y = -Math.PI / 2; fm.position.set(xb - L - 0.06, 0, zc); fm.castShadow = true; scene.add(fm); }
+  box(xb - L, xb - 0.1, 0.25, 0.32, zc - W / 2, zc + W / 2, wm);
+  box(xb - L + 0.05, xb - 0.12, 0.32, 0.57, zc - W / 2 + 0.03, zc + W / 2 - 0.03, linenW);
+  box(xb - L + 0.05, xb - 0.7, 0.57, 0.65, zc - W / 2 - 0.03, zc + W / 2 + 0.03, linenW);
+  pillow(xb - 0.3, 0.78, zc - 0.42, 0.65, linenW); pillow(xb - 0.3, 0.78, zc + 0.42, 0.65, linenW); pillow(xb - 0.45, 0.72, zc, 0.45, T(rep(cv(64, 64, (g, w, h) => { g.fillStyle = '#f2efe8'; g.fillRect(0, 0, w, h); g.fillStyle = '#5a7fb0'; for (let i = 0; i < 64; i += 16) g.fillRect(0, i, w, 5); }), 2, 2)));
+  // painted bedside tables with marble tops + white lamps
+  for (const z of [1.25, 3.95]) { box(9.5, 9.95, 0.12, 0.62, z - 0.25, z + 0.25, wm); box(9.48, 9.97, 0.62, 0.66, z - 0.27, z + 0.27, M('#d9c3a0', { roughness: 0.2 }));
+    for (const [dx, dz] of [[0.05, -0.2], [0.4, -0.2], [0.05, 0.2], [0.4, 0.2]]) cyl(9.5 + dx, z + dz, 0.025, 0, 0.12, wm, 8, 0.018);
+    tableLamp(9.72, 0.66, z); }
+  // the marble dresser + gold oval mirror on the window-side wall... placed on wall x=5.0
+  box(5.0, 5.5, 0.15, 0.9, 1.6, 3.4, T(carvedPanelTex(white, '#3b2a20'), { roughness: 0.6 }));
+  wallPlane('E', 5.505, 2.5, 1.8, 0.18, 0.88, T(cv(1024, 400, (g, w, h) => { g.fillStyle = white; g.fillRect(0, 0, w, h); for (let r = 0; r < 3; r++) for (let c = 0; c < 2; c++) { const x = c * w / 2 + 12, y = r * h / 3 + 8, ww = w / 2 - 24, hh = h / 3 - 16;
+    g.strokeStyle = 'rgba(0,0,0,0.2)'; g.lineWidth = 5; g.beginPath(); g.roundRect(x, y, ww, hh, 30); g.stroke(); g.fillStyle = '#3b2a20'; g.beginPath(); g.arc(x + 40, y + hh / 2, 9, 0, 7); g.fill(); g.beginPath(); g.arc(x + ww - 40, y + hh / 2, 9, 0, 7); g.fill(); }
+    for (let i = 0; i < 120; i++) { g.fillStyle = `rgba(110,60,30,${0.2 + rnd() * 0.4})`; g.fillRect(rnd() * w, rnd() * h, 3 + rnd() * 8, 2); } }), { roughness: 0.6 }));
+  box(4.98, 5.55, 0.9, 0.95, 1.55, 3.45, M('#d9c3a0', { roughness: 0.15 }));
+  for (const [z] of [[1.65], [3.35]]) for (const x of [5.05, 5.45]) cyl(x, z, 0.03, 0, 0.15, wm, 8, 0.02);
+  { const ring = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.06, 12, 40), M('#c9a24a', { metalness: 0.9, roughness: 0.3 })); ring.scale.set(1, 1.35, 1); ring.rotation.y = Math.PI / 2; ring.position.set(5.03, 1.75, 2.5); scene.add(ring);
+    const mir = new THREE.Mesh(new THREE.CircleGeometry(0.4, 40), M('#cfd8da', { metalness: 0.3, roughness: 0.1 })); mir.scale.set(1, 1.35, 1); mir.rotation.y = Math.PI / 2; mir.position.set(5.02, 1.75, 2.5); scene.add(mir); }
+  // blue painted cabinet (vetrina) – distressed, on the door wall
+  { const blue = T(cv(256, 512, (g, w, h) => { g.fillStyle = '#5a7fb0'; g.fillRect(0, 0, w, h); for (let i = 0; i < 300; i++) { g.fillStyle = `rgba(${rnd() > 0.5 ? '240,240,235' : '90,50,30'},${0.15 + rnd() * 0.35})`; g.fillRect(rnd() * w, rnd() * h, 2 + rnd() * 14, 1 + rnd() * 3); } }), { roughness: 0.7 });
+    box(6.3, 8.1, 0, 0.95, 4.7, 5.18, blue); box(6.35, 8.05, 0.95, 2.15, 4.8, 5.18, blue); box(6.25, 8.15, 2.15, 2.3, 4.65, 5.18, blue);
+    for (const [x0, x1] of [[6.45, 6.95], [7.45, 7.95]]) box(x0, x1, 1.05, 2.05, 4.79, 4.8, new THREE.MeshPhysicalMaterial({ color: '#eef6f8', transparent: true, opacity: 0.35 }), false);
+    cyl(7.2, 4.95, 0.14, 0.95, 1.3, M('#5aa27a', { roughness: 0.2 }), 16, 0.08); }
+  // old wooden chandelier + orange armchair (from your living room) mixed with modern
+  chandelier(7.5, 2.6, 2.3, 0.4, 6, 1.8);
+  { const ch = boucle('#d9693a'); box(6.1, 6.85, 0.15, 0.45, 0.6, 1.35, ch); box(6.1, 6.25, 0.45, 0.95, 0.6, 1.35, ch); box(6.1, 6.85, 0.45, 0.65, 0.5, 0.62, walnutM); box(6.1, 6.85, 0.45, 0.65, 1.33, 1.45, walnutM); }
+  { const m = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 2.2), T(kilim('#5a7fb0', '#efe6d6', '#c9b48a'), { roughness: 1 })); m.rotation.x = -Math.PI / 2; m.position.set(7.3, 0.006, 2.6); scene.add(m); } }
 scene.add(new THREE.HemisphereLight('#fff0d8', '#8a6a4a', 0.65));
 const sun = new THREE.DirectionalLight('#ffe6c0', 1.8); sun.position.set(4, 8, -10); sun.target.position.set(5, 0, 2.6); scene.add(sun.target);
 sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8, near: 1, far: 40 }); sun.shadow.bias = -0.0005; scene.add(sun);
 const cams = {
-  cameraA: { pos: [4.3, 1.6, 4.6], at: [0.6, 0.9, 2.2], fov: 72 },
+  cameraA: { pos: [4.0, 1.6, 1.0], at: [0.4, 1.0, 3.0], fov: 74 },
   cameraA2: { pos: [0.6, 1.55, 4.6], at: [3.6, 1.1, 0.5], fov: 72 },
-  cameraB: { pos: [5.5, 1.6, 4.6], at: [9.6, 0.9, 2.3], fov: 72 },
-  cameraB2: { pos: [9.3, 1.55, 4.7], at: [5.8, 1.0, 0.6], fov: 72 },
+  cameraB: { pos: [5.7, 1.6, 4.5], at: [9.6, 0.9, 2.3], fov: 72 },
+  cameraB2: { pos: [8.6, 1.6, 0.8], at: [5.2, 1.1, 3.6], fov: 74 },
   top: { pos: [5, 11, 9], at: [5, 0, 2.6], fov: 45 },
 };
 const c = cams[VIEW];

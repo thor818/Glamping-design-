@@ -2,7 +2,21 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – Ligurian ground floor (v12) + upstairs bedrooms
+## 0. NEWEST – two bedroom types + house colours outside
+
+**Modern room:** wall bed that folds into a cabinet, green sofa in front by day, built-in wardrobe, glass shower with a coloured wall and floating oak vanity.
+**Authentic Italian painted room:** your white distressed carved bed and bedside tables with marble tops, the marble dresser with the gold oval mirror, the blue painted cabinet, an orange armchair, kilim rug, iron chandelier.
+
+| | |
+|---|---|
+| ![Modern room](render-3d/camere-piano-superiore/1-camera-moderna-letto-a-scomparsa.png) | ![Painted Italian room](render-3d/camere-piano-superiore/2-camera-italiana-dipinta-letto.png) |
+| ![Dresser, mirror, blue cabinet](render-3d/camere-piano-superiore/3-camera-italiana-comò-specchio-vetrina.png) | ![From above](render-3d/camere-piano-superiore/4-camere-dall-alto.png) |
+
+**Outside:** three Ligurian facade colours with white frames and green shutters.
+
+![Facade colours](render-3d/esterno-colori/0-confronto-colori.png)
+
+## 0a. Ligurian ground floor (v12) + upstairs bedrooms
 
 **Ground floor:** back to the Ligurian style of the beginning, but with square openings (no arches), less stone (only the fireplace), light wooden beams, ochre bar wall with green-shutter doors, long walnut bar with slate top and the lift-up flap, two very long shared tables plus one by the bar, natural straw chairs, iron chandeliers, kilim floor seating in the lounge, Buffalo Soldiers photo and bikers' storage at the entrance.
 
