@@ -2,7 +2,15 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – ground floor: Ligurian, a bit more modern (v13)
+## 0. NEWEST – lounge with big floor cushions (Mah Jong style, v14)
+
+Like the Roche Bobois Mah Jong sofa: long modular floor cushions (base + seat + back + bolsters) in colourful patchwork mixed with quilted plain ones, a 7 m run under the windows, an L-return by the entrance and free islands in the middle, low brass trays as tables. Rest of the ground floor as v13.
+
+| | |
+|---|---|
+| ![Lounge](render-3d/v14-lounge-cuscini-mahjong/1-lounge-cuscini-a-terra.png) | ![Lounge towards entrance](render-3d/v14-lounge-cuscini-mahjong/2-lounge-verso-ingresso.png) |
+
+## 0a. Ground floor: Ligurian, a bit more modern (v13)
 
 Same Ligurian ground floor as v12, but lighter and more modern: no stone at all (smooth plaster fireplace), bleached light beams, oak long tables and benches, big linen drum pendants over the tables. No arches. Bedrooms now have wooden floors.
 
