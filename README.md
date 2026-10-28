@@ -2,7 +2,15 @@
 
 All the drawings and 3D views made so far. The newest version is at the top.
 
-## 0. NEWEST – piano by the fire, Saturday Night Fever floor, glazed openings (v16)
+## 0. NEWEST – your blue bar with the striped orange wall (v17)
+
+Same as v16, but the bar is the one from your render: blue fluted counter with a wooden top and LED strip, wall behind painted in stripes (red-orange, cream, blue, orange, pink, navy) with arches, the doors painted in, warm lettering, orange and red pendant lamps.
+
+| | |
+|---|---|
+| ![Blue bar](render-3d/v17-bar-blu-parete-arancione/1-bar-blu-da-vicino.png) | ![From the sala](render-3d/v17-bar-blu-parete-arancione/2-bar-blu-dalla-sala.png) |
+
+## 0a. Piano by the fire, Saturday Night Fever floor, glazed openings (v16)
 
 Piano moved next to the fireplace. Saturday Night Fever dance floor: lit coloured squares (6 x 4, about 3 x 2 m) with a mirror ball, between the floor cushions and the piano. Outside windows of the lounge are arched (like the real ones). The square openings between sala and lounge keep glazed steel windows/doors, so the two spaces are separated.
 
