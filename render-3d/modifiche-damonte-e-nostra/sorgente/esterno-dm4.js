@@ -440,7 +440,7 @@ for (const [x, z] of [[-18, 42], [-4, 50], [15, 50], [30, 45], [42, 40], [6, 38]
 
 // ROUND POOL like Damonte p.4: a raised circle (above ground, clad in stone), timber deck, rectangular basin towards the view
 // with a small round plunge pool and steps at its corner, pale stone half-moon, loungers in a row, square umbrella, lounge corner, big olive
-function roundPool(cx, cz, y0, dir) { const R = 6.5, H = 1.1, top = y0 + H;
+function roundPool(cx, cz, y0, dir) { const R = 6.5, H = 0.45, top = y0 + H;
   const wall = new THREE.Mesh(new THREE.CylinderGeometry(R, R, H, 64, 1, true), stoneW(40, H)); wall.position.set(cx, y0 + H / 2, cz); wall.castShadow = true; scene.add(wall);
   const deck = new THREE.Mesh(new THREE.CircleGeometry(R, 64, dir > 0 ? Math.PI : 0, Math.PI), oakM); deck.rotation.x = -Math.PI / 2; deck.position.set(cx, top, cz); deck.receiveShadow = true; scene.add(deck);
   const half = new THREE.Mesh(new THREE.CircleGeometry(R, 64, dir > 0 ? 0 : Math.PI, Math.PI), travM); half.rotation.x = -Math.PI / 2; half.position.set(cx, top, cz); half.receiveShadow = true; scene.add(half);
@@ -458,7 +458,7 @@ function roundPool(cx, cz, y0, dir) { const R = 6.5, H = 1.1, top = y0 + H;
   cyl(cx - 4.3, cz + dir * 0.8, 0.35, top, top + 0.4, oakM, 20);
   box(cx + 4.4, cx + 5.2, top, top + 0.45, cz + dir * 0.5 - 0.4, cz + dir * 0.5 + 0.4, rustM);
   for (let i = 0; i < 6; i++) { const s = cyl(cx + dir * 0 + (i - 2.5) * 2.0 * 0, cz, 0.0, 0, 0, oakM); s.visible = false; }
-  const steps = (sx) => { for (let i = 0; i < 5; i++) box(sx - 0.7, sx + 0.7, y0, y0 + (i + 1) * 0.22, cz - dir * (R + 1.4 - i * 0.3) - 0.15, cz - dir * (R + 1.4 - i * 0.3) + 0.15, stoneW(1.4, 0.22)); }; steps(cx + 4.5);
+  const steps = (sx) => { for (let i = 0; i < 2; i++) box(sx - 0.7, sx + 0.7, y0, y0 + (i + 1) * 0.22, cz - dir * (R + 0.6 - i * 0.3) - 0.15, cz - dir * (R + 0.6 - i * 0.3) + 0.15, stoneW(1.4, 0.22)); }; steps(cx + 4.5);
   olive(cx - 2, y0, cz - dir * (R + 2.5), 1.9); }
 roundPool(29.5, 6.0, 0, 1);
 // ---- POOL BAR: timber pergola with reed roof, terracotta-tile bar, carved wooden stools, swing seats (p.10-11)
