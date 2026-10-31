@@ -512,7 +512,7 @@ function label(txt, x, y, z, w = 4, ry = 0) { const s = new THREE.Mesh(new THREE
   label('LE AMACHE', 33, 1.8, 20.2, 3, -Math.PI / 2); }
 
 // ---- glamping bell tents on the slope behind (as in the approved plan, many more around)
-bellTent(30, 0, -12); bellTent(42, 0, -6); bellTent(-12, 0, -22); bellTent(2, 0, -26);
+// no tents near the house
 for (const [x, z] of [[20, -18], [-24, -14], [36, -22]]) olive(x, 0, z, 1.2);
 
 // ---- sky, hills, light
