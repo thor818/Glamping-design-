@@ -385,7 +385,7 @@ else { box(P(210), P(1450), HS, HS + 0.06, P(840), P(1110), M('#e9e2d6', { trans
   const smallT = (px, pz, rotChairs) => { const x = P(px), z = P(pz); box(x - 0.35, x + 0.35, 0.72, 0.76, z - 0.35, z + 0.35, oakM); cyl(x, z, 0.04, 0, 0.72, ironM, 8); box(x - 0.25, x + 0.25, 0, 0.02, z - 0.25, z + 0.25, ironM);
     if (rotChairs) { straw(x - 0.6, z, Math.PI / 2, 0); straw(x + 0.6, z, -Math.PI / 2, 0); } else { straw(x, z - 0.6, 0, 0); }
     cyl(x, z, 0.04, 0.76, 0.9, M(tc[Math.floor(rnd() * 3)]), 10, 0.03); };
-  for (const [px, pz] of [[1040, 785]]) smallT(px, pz, true);  // only one: the two openings to the lounge stay free
+  for (const [px, pz] of [[720, 780], [1040, 785], [1200, 775]]) smallT(px, pz, true);  // one removed (the one in the lounge opening)
   // banquette along the east wall with two little tables
   const bq = boucle('#7f8f4e'); box(P(1388), P(1424), 0, 0.45, P(690), P(820), oakM); box(P(1390), P(1424), 0.45, 0.55, P(692), P(818), bq); box(P(1410), P(1424), 0.55, 1.05, P(692), P(818), bq);
   smallT(1340, 720, false); smallT(1340, 790, false);
