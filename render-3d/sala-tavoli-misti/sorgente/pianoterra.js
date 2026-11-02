@@ -375,7 +375,7 @@ else { box(P(210), P(1450), HS, HS + 0.06, P(840), P(1110), M('#e9e2d6', { trans
       for (const x of [x0 + 0.35, (x0 + x1) / 2, x1 - 0.4]) { box(x, x + 0.05, 0, 0.42, bz - 0.14, bz + 0.14, ironM); } }
     for (let x = x0 + 0.6; x < x1 - 0.4; x += 1.3) cyl(x, (z0 + z1) / 2, 0.05, 0.78, 0.98, M(tc[Math.floor(rnd() * 3)]), 12, 0.03);
     for (let x = x0 + 0.8; x < x1; x += 1.6) { cyl(x, (z0 + z1) / 2, 0.004, 1.95, HS, M('#111'), 6); const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.2, 0.25, 24, 1, true), M('#b9673d', { side: THREE.DoubleSide, roughness: 0.5 })); sh.position.set(x, 1.85, (z0 + z1) / 2); scene.add(sh); const l = new THREE.PointLight('#ffc98a', 1.0, 0, 2); l.position.set(x, 1.7, (z0 + z1) / 2); scene.add(l); } };
-  longT(790, 1060, 565, 625); longT(1150, 1390, 470, 530);
+  longT(790, 1060, 560, 620); longT(1125, 1395, 560, 620);  // two equal long tables, aligned
   const roundT = (px, pz) => { const x = P(px), z = P(pz); roundTable(x, z, 0.55, 0.75, marble); for (let i = 0; i < 4; i++) { const a = i * Math.PI / 2 + Math.PI / 4; straw(x + Math.cos(a) * 0.8, z + Math.sin(a) * 0.8, Math.atan2(-Math.cos(a), -Math.sin(a)), 0); }
     cyl(x, z, 0.004, 1.9, HS, M('#111'), 6); const s = new THREE.Mesh(new THREE.SphereGeometry(0.42, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2), T(texStraw, { side: THREE.DoubleSide })); s.scale.y = 0.5; s.position.set(x, 1.85, z); scene.add(s); const l = new THREE.PointLight('#ffcf94', 1.2, 0, 2); l.position.set(x, 1.7, z); scene.add(l); };
   // round white tables removed: more space in front of the bar
