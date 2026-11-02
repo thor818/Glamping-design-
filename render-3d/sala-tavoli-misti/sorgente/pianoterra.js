@@ -385,7 +385,7 @@ else { box(P(210), P(1450), HS, HS + 0.06, P(840), P(1110), M('#e9e2d6', { trans
   const smallT = (px, pz, rotChairs) => { const x = P(px), z = P(pz); box(x - 0.35, x + 0.35, 0.72, 0.76, z - 0.35, z + 0.35, oakM); cyl(x, z, 0.04, 0, 0.72, ironM, 8); box(x - 0.25, x + 0.25, 0, 0.02, z - 0.25, z + 0.25, ironM);
     if (rotChairs) { straw(x - 0.6, z, Math.PI / 2, 0); straw(x + 0.6, z, -Math.PI / 2, 0); } else { straw(x, z - 0.6, 0, 0); }
     cyl(x, z, 0.04, 0.76, 0.9, M(tc[Math.floor(rnd() * 3)]), 10, 0.03); };
-  for (const [px, pz] of [[720, 780], [880, 772], [1040, 785], [1200, 775]]) smallT(px, pz, true);
+  for (const [px, pz] of [[1040, 785]]) smallT(px, pz, true);  // only one: the two openings to the lounge stay free
   // banquette along the east wall with two little tables
   const bq = boucle('#7f8f4e'); box(P(1388), P(1424), 0, 0.45, P(690), P(820), oakM); box(P(1390), P(1424), 0.45, 0.55, P(692), P(818), bq); box(P(1410), P(1424), 0.55, 1.05, P(692), P(818), bq);
   smallT(1340, 720, false); smallT(1340, 790, false);
@@ -408,7 +408,7 @@ const sun = new THREE.DirectionalLight('#fff0d8', AERIAL ? 2.4 : 1.4); sun.posit
 sun.castShadow = true; sun.shadow.mapSize.set(4096, 4096); Object.assign(sun.shadow.camera, { left: -16, right: 16, top: 16, bottom: -16, near: 1, far: 60 }); sun.shadow.bias = -0.0005; scene.add(sun);
 if (!AERIAL) for (const [x, z] of [[11, 7], [16, 7], [11, 9], [16, 9]]) { const l = new THREE.PointLight('#ffe2b8', 1.6, 0, 2); l.position.set(x, 3.0, z); scene.add(l); }
 scene.background = new THREE.Color('#2b3a2f');
-const CAMS = { panche: [[17.0, 1.6, 8.8], [11.5, 0.6, 7.0], 64], uscita: [[11.0, 1.7, 5.4], [18.2, 1.2, 7.2], 64], sala2: [[11.6, 1.75, 5.0], [15.5, 0.9, 9.8], 68], salatop: [[13.0, 11.5, 11.5], [12.8, 0, 6.8], 48], alto: [[9.3, 27, 17.5], [9.3, 0, 7.4], 42], bar: [[14.2, 1.6, 9.6], [14.2, 1.4, 3.6], 68], sala: [[17.6, 1.7, 9.9], [9.5, 1.1, 5.0], 66], portico: [[3.6, 1.6, 13.6], [14, 0.9, 12.6], 64] };
+const CAMS = { verso: [[11.5, 1.7, 5.2], [11.0, 1.0, 12.5], 70], sala2: [[11.6, 1.75, 5.0], [15.5, 0.9, 9.8], 68], salatop: [[13.0, 11.5, 11.5], [12.8, 0, 6.8], 48], alto: [[9.3, 27, 17.5], [9.3, 0, 7.4], 42], bar: [[14.2, 1.6, 9.6], [14.2, 1.4, 3.6], 68], sala: [[17.6, 1.7, 9.9], [9.5, 1.1, 5.0], 66], portico: [[3.6, 1.6, 13.6], [14, 0.9, 12.6], 64] };
 const k = CAMS[VIEW] || CAMS.alto;
 const camera = new THREE.PerspectiveCamera(k[2], W / H, 0.05, 200); camera.position.set(...k[0]); camera.lookAt(...k[1]);
 renderer.render(scene, camera);
