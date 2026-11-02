@@ -370,7 +370,9 @@ else { box(P(210), P(1450), HS, HS + 0.06, P(840), P(1110), M('#e9e2d6', { trans
 // SALA – mixed seating so it doesn't look like a canteen: two long tables, round tables, little tables for two by the windows, a banquette
 { const marble = T(texMarble, { roughness: 0.25 }), tc = ['#efe6d6', '#a4502f', '#6f7448'];
   const longT = (a, b, c, d) => { const x0 = P(a), x1 = P(b), z0 = P(c), z1 = P(d); box(x0, x1, 0.72, 0.78, z0, z1, oakM); for (const x of [x0 + 0.25, x1 - 0.3]) box(x, x + 0.05, 0, 0.72, z0 + 0.1, z1 - 0.1, ironM);
-    for (let x = x0 + 0.35; x < x1 - 0.2; x += 0.62) { straw(x, z0 - 0.35, 0, 0); straw(x, z1 + 0.35, Math.PI, 0); }
+    // German beer-hall style: a long wooden bench on each side instead of chairs
+    for (const bz of [z0 - 0.4, z1 + 0.4]) { box(x0 + 0.1, x1 - 0.1, 0.42, 0.47, bz - 0.17, bz + 0.17, oakM);
+      for (const x of [x0 + 0.35, (x0 + x1) / 2, x1 - 0.4]) { box(x, x + 0.05, 0, 0.42, bz - 0.14, bz + 0.14, ironM); } }
     for (let x = x0 + 0.6; x < x1 - 0.4; x += 1.3) cyl(x, (z0 + z1) / 2, 0.05, 0.78, 0.98, M(tc[Math.floor(rnd() * 3)]), 12, 0.03);
     for (let x = x0 + 0.8; x < x1; x += 1.6) { cyl(x, (z0 + z1) / 2, 0.004, 1.95, HS, M('#111'), 6); const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.2, 0.25, 24, 1, true), M('#b9673d', { side: THREE.DoubleSide, roughness: 0.5 })); sh.position.set(x, 1.85, (z0 + z1) / 2); scene.add(sh); const l = new THREE.PointLight('#ffc98a', 1.0, 0, 2); l.position.set(x, 1.7, (z0 + z1) / 2); scene.add(l); } };
   longT(790, 1060, 565, 625); longT(1150, 1390, 470, 530);
@@ -403,7 +405,7 @@ const sun = new THREE.DirectionalLight('#fff0d8', AERIAL ? 2.4 : 1.4); sun.posit
 sun.castShadow = true; sun.shadow.mapSize.set(4096, 4096); Object.assign(sun.shadow.camera, { left: -16, right: 16, top: 16, bottom: -16, near: 1, far: 60 }); sun.shadow.bias = -0.0005; scene.add(sun);
 if (!AERIAL) for (const [x, z] of [[11, 7], [16, 7], [11, 9], [16, 9]]) { const l = new THREE.PointLight('#ffe2b8', 1.6, 0, 2); l.position.set(x, 3.0, z); scene.add(l); }
 scene.background = new THREE.Color('#2b3a2f');
-const CAMS = { panca2: [[10.8, 1.6, 8.2], [7.8, 0.7, 6.9], 66], sala2: [[11.6, 1.75, 5.0], [15.5, 0.9, 9.8], 68], salatop: [[13.0, 11.5, 11.5], [12.8, 0, 6.8], 48], alto: [[9.3, 27, 17.5], [9.3, 0, 7.4], 42], bar: [[14.2, 1.6, 9.6], [14.2, 1.4, 3.6], 68], sala: [[17.6, 1.7, 9.9], [9.5, 1.1, 5.0], 66], portico: [[3.6, 1.6, 13.6], [14, 0.9, 12.6], 64] };
+const CAMS = { panche: [[17.0, 1.6, 8.8], [11.5, 0.6, 7.0], 64], panca2: [[10.8, 1.6, 8.2], [7.8, 0.7, 6.9], 66], sala2: [[11.6, 1.75, 5.0], [15.5, 0.9, 9.8], 68], salatop: [[13.0, 11.5, 11.5], [12.8, 0, 6.8], 48], alto: [[9.3, 27, 17.5], [9.3, 0, 7.4], 42], bar: [[14.2, 1.6, 9.6], [14.2, 1.4, 3.6], 68], sala: [[17.6, 1.7, 9.9], [9.5, 1.1, 5.0], 66], portico: [[3.6, 1.6, 13.6], [14, 0.9, 12.6], 64] };
 const k = CAMS[VIEW] || CAMS.alto;
 const camera = new THREE.PerspectiveCamera(k[2], W / H, 0.05, 200); camera.position.set(...k[0]); camera.lookAt(...k[1]);
 renderer.render(scene, camera);
