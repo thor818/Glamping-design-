@@ -375,7 +375,9 @@ const antW = T(rep(cv(512, 256, (g, w, h) => { const pl = 5, ph = h / pl;
     for (let k = 0; k < 2; k++) { const kx = rnd() * w, ky = p * ph + ph * (0.3 + rnd() * 0.4); g.fillStyle = 'rgba(20,8,2,0.55)'; g.beginPath(); g.ellipse(kx, ky, 6 + rnd() * 6, 3 + rnd() * 2, 0, 0, 7); g.fill(); }
     g.fillStyle = 'rgba(10,4,0,0.85)'; g.fillRect(0, p * ph, w, 2.5); g.fillStyle = 'rgba(220,180,130,0.12)'; g.fillRect(0, p * ph + 3, w, 3); }
   for (let i = 0; i < 70; i++) { g.fillStyle = `rgba(${rnd() > 0.6 ? '210,170,120' : '15,6,2'},${0.15 + rnd() * 0.25})`; g.fillRect(rnd() * w, rnd() * h, 1 + rnd() * 12, 1 + rnd() * 2); } }), 1.5, 1), { roughness: 0.6 });
-const paintBase = T(rep(cv(256, 256, (g, w, h) => { g.fillStyle = '#8f9a7a'; g.fillRect(0, 0, w, h); for (let i = 0; i < 500; i++) { const r = rnd(); g.fillStyle = r < 0.4 ? 'rgba(235,225,200,0.35)' : r < 0.8 ? 'rgba(70,50,30,0.4)' : 'rgba(120,80,45,0.6)'; g.fillRect(rnd() * w, rnd() * h, 2 + rnd() * 14, 1 + rnd() * 4); } }), 1, 1), { roughness: 0.8 });
+const paintT = (base) => T(rep(cv(256, 256, (g, w, h) => { g.fillStyle = base; g.fillRect(0, 0, w, h); for (let i = 0; i < 520; i++) { const r = rnd(); g.fillStyle = r < 0.4 ? 'rgba(240,232,210,0.35)' : r < 0.8 ? 'rgba(70,50,30,0.35)' : 'rgba(120,80,45,0.65)'; g.fillRect(rnd() * w, rnd() * h, 2 + rnd() * 16, 1 + rnd() * 4); }
+  g.strokeStyle = 'rgba(60,40,25,0.25)'; g.lineWidth = 1; for (let y = 0; y < h; y += 32) { g.beginPath(); g.moveTo(0, y); g.lineTo(w, y + 2); g.stroke(); } }), 1, 1), { roughness: 0.75 });
+const PAINTS = [paintT('#8f9a7a'), paintT('#e3d8bf'), paintT('#7f97a3')]; let paintI = 0; const paintBase = PAINTS[0];
 const legGeo = (h, r) => new THREE.LatheGeometry([[0, 0], [r * 0.85, 0], [r * 0.95, h * 0.04], [r * 0.6, h * 0.09], [r * 0.95, h * 0.17], [r * 0.95, h * 0.21], [r * 0.5, h * 0.3], [r * 0.85, h * 0.42], [r * 0.5, h * 0.55], [r * 0.7, h * 0.66], [r * 1.05, h * 0.72], [r * 1.05, h], [0, h]].map(([a, b]) => new THREE.Vector2(a, b)), 14);
 function antLeg(x, z, h, r, m = antW) { const L = new THREE.Mesh(legGeo(h, r), m); L.position.set(x, 0, z); L.castShadow = true; scene.add(L); }
 // big tables: Italian "fratino" refectory table – very thick plank top, two carved trestle ends, long beam with wooden wedges
@@ -390,9 +392,13 @@ function antTable(x0, x1, z0, z1, h = 0.76) {
     box(x0 + 0.25, x1 - 0.25, 0.3, 0.4, cz - 0.035, cz + 0.035, antW);                       // long beam
     for (const x of [x0 + 0.22, x1 - 0.22]) box(x - 0.02, x + 0.02, 0.26, 0.44, cz - 0.05, cz + 0.05, antW);  // wedges
   } else {                                            // small: old kitchen table with painted turned legs and a drawer
-    const ix = 0.07, iz = 0.07; box(x0 + ix, x1 - ix, h - 0.2, h - 0.08, z0 + iz, z1 - iz, paintBase);
+    const pm = PAINTS[paintI++ % PAINTS.length];
+    // painted top in the same old style as the legs: worn paint, rounded moulded edge in two steps, wood showing at the corners
+    box(x0, x1, h - 0.08, h, z0, z1, antW); box(x0 + 0.01, x1 - 0.01, h - 0.002, h + 0.004, z0 + 0.01, z1 - 0.01, pm);
+    for (const [a1, a2, b1, b2] of [[x0 - 0.02, x1 + 0.02, z0 - 0.02, z0], [x0 - 0.02, x1 + 0.02, z1, z1 + 0.02], [x0 - 0.02, x0, z0, z1], [x1, x1 + 0.02, z0, z1]]) { box(a1, a2, h - 0.045, h - 0.005, b1, b2, pm); box(a1 + 0.005, a2 - 0.005, h - 0.075, h - 0.05, b1 + (b1 < z0 ? 0.008 : 0), b2 - (b2 > z1 ? 0.008 : 0), pm); }
+    const ix = 0.07, iz = 0.07; box(x0 + ix, x1 - ix, h - 0.2, h - 0.08, z0 + iz, z1 - iz, pm);
     box((x0 + x1) / 2 - 0.15, (x0 + x1) / 2 + 0.15, h - 0.18, h - 0.1, z1 - iz, z1 - iz + 0.005, antW); cyl((x0 + x1) / 2, z1 - iz + 0.02, 0.015, h - 0.15, h - 0.13, brassM, 8);
-    for (const x of [x0 + ix + 0.02, x1 - ix - 0.02]) for (const z of [z0 + iz + 0.02, z1 - iz - 0.02]) antLeg(x, z, h - 0.08, 0.04, paintBase); } }
+    for (const x of [x0 + ix + 0.02, x1 - ix - 0.02]) for (const z of [z0 + iz + 0.02, z1 - iz - 0.02]) antLeg(x, z, h - 0.08, 0.04, pm); } }
 function antBench(x0, x1, z0, z1) { box(x0, x1, 0.41, 0.47, z0, z1, antW); const cz = (z0 + z1) / 2;
   const n = Math.max(2, Math.round((x1 - x0) / 1.4) + 1);
   for (let i = 0; i < n; i++) { const x = x0 + 0.15 + i * (x1 - x0 - 0.3) / (n - 1); for (const s of [-1, 1]) { const lg = box(x - 0.025, x + 0.025, 0, 0.44, cz + s * 0.09 - 0.025, cz + s * 0.09 + 0.025, antW); lg.rotation.x = s * 0.18; } }
@@ -442,7 +448,7 @@ const sun = new THREE.DirectionalLight('#fff0d8', AERIAL ? 2.4 : 1.4); sun.posit
 sun.castShadow = true; sun.shadow.mapSize.set(4096, 4096); Object.assign(sun.shadow.camera, { left: -16, right: 16, top: 16, bottom: -16, near: 1, far: 60 }); sun.shadow.bias = -0.0005; scene.add(sun);
 if (!AERIAL) for (const [x, z] of [[11, 7], [16, 7], [11, 9], [16, 9]]) { const l = new THREE.PointLight('#ffe2b8', 1.6, 0, 2); l.position.set(x, 3.0, z); scene.add(l); }
 scene.background = new THREE.Color('#2b3a2f');
-const CAMS = { rossa: [[10.6, 1.6, 8.6], [7.9, 0.6, 6.9], 62], sala2: [[11.6, 1.75, 5.0], [15.5, 0.9, 9.8], 68], salatop: [[13.0, 11.5, 11.5], [12.8, 0, 6.8], 48], alto: [[9.3, 27, 17.5], [9.3, 0, 7.4], 42], bar: [[14.2, 1.6, 9.6], [14.2, 1.4, 3.6], 68], sala: [[17.6, 1.7, 9.9], [9.5, 1.1, 5.0], 66], portico: [[3.6, 1.6, 13.6], [14, 0.9, 12.6], 64] };
+const CAMS = { rossa: [[10.6, 1.6, 8.6], [7.9, 0.6, 6.9], 62], tavolino: [[12.3, 1.3, 8.9], [13.2, 0.6, 9.9], 58], verde: [[15.6, 1.4, 8.4], [17.4, 0.6, 9.6], 60], sala2: [[11.6, 1.75, 5.0], [15.5, 0.9, 9.8], 68], salatop: [[13.0, 11.5, 11.5], [12.8, 0, 6.8], 48], alto: [[9.3, 27, 17.5], [9.3, 0, 7.4], 42], bar: [[14.2, 1.6, 9.6], [14.2, 1.4, 3.6], 68], sala: [[17.6, 1.7, 9.9], [9.5, 1.1, 5.0], 66], portico: [[3.6, 1.6, 13.6], [14, 0.9, 12.6], 64] };
 const k = CAMS[VIEW] || CAMS.alto;
 const camera = new THREE.PerspectiveCamera(k[2], W / H, 0.05, 200); camera.position.set(...k[0]); camera.lookAt(...k[1]);
 renderer.render(scene, camera);
