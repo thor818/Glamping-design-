@@ -391,7 +391,9 @@ else { box(P(210), P(1450), HS, HS + 0.06, P(840), P(1110), M('#e9e2d6', { trans
   smallT(1340, 720, false); smallT(1340, 790, false);
   // second banquette on the west wall (terracotta velvet), two little tables with a chair facing it
   { const bq2 = boucle('#a8502c'); box(P(604), P(640), 0, 0.45, P(470), P(625), oakM); box(P(604), P(638), 0.45, 0.55, P(472), P(623), bq2); box(P(604), P(618), 0.55, 1.05, P(472), P(623), bq2);
-    for (const pz of [505, 590]) { const x = P(690), z = P(pz); box(x - 0.35, x + 0.35, 0.72, 0.76, z - 0.35, z + 0.35, oakM); cyl(x, z, 0.04, 0, 0.72, ironM, 8); straw(x + 0.6, z, -Math.PI / 2, 0); cyl(x, z, 0.04, 0.76, 0.9, M('#6f7448'), 10, 0.03); } }
+    for (const pz of [505, 590]) { const x = P(690), z = P(pz); box(x - 0.35, x + 0.35, 0.72, 0.76, z - 0.35, z + 0.35, oakM); cyl(x, z, 0.04, 0, 0.72, ironM, 8); cyl(x, z, 0.04, 0.76, 0.9, M('#6f7448'), 10, 0.03); }
+    // a wooden bench on the other side instead of two chairs
+    { const bx = P(690) + 0.62; box(bx - 0.17, bx + 0.17, 0.42, 0.47, P(470), P(625), oakM); for (const zz of [P(480), P(548), P(612)]) box(bx - 0.14, bx + 0.14, 0, 0.42, zz - 0.03, zz + 0.03, ironM); } }
   for (const [x, z] of [[P(660), P(760)]]) { cyl(x, z, 0.3, 0, 0.55, M('#b9673d'), 16, 0.34); for (let i = 0; i < 7; i++) { const lf = new THREE.Mesh(new THREE.SphereGeometry(0.28, 8, 6), M(i % 2 ? '#4f6e3a' : '#6a8a45')); lf.scale.y = 1.5; lf.position.set(x + (rnd() - 0.5) * 0.5, 1.0 + rnd() * 0.9, z + (rnd() - 0.5) * 0.5); scene.add(lf); } } }
 // PORTICO as lounge: few long floor cushions, dance floor flush with the floor, piano, fireplace
 { const pm = [boucle('#a3262a'), boucle('#2f4a6e'), boucle('#1f5c5a'), boucle('#d98a2b')];
@@ -408,7 +410,7 @@ const sun = new THREE.DirectionalLight('#fff0d8', AERIAL ? 2.4 : 1.4); sun.posit
 sun.castShadow = true; sun.shadow.mapSize.set(4096, 4096); Object.assign(sun.shadow.camera, { left: -16, right: 16, top: 16, bottom: -16, near: 1, far: 60 }); sun.shadow.bias = -0.0005; scene.add(sun);
 if (!AERIAL) for (const [x, z] of [[11, 7], [16, 7], [11, 9], [16, 9]]) { const l = new THREE.PointLight('#ffe2b8', 1.6, 0, 2); l.position.set(x, 3.0, z); scene.add(l); }
 scene.background = new THREE.Color('#2b3a2f');
-const CAMS = { panche: [[17.0, 1.6, 8.8], [11.5, 0.6, 7.0], 64], sala2: [[11.6, 1.75, 5.0], [15.5, 0.9, 9.8], 68], salatop: [[13.0, 11.5, 11.5], [12.8, 0, 6.8], 48], alto: [[9.3, 27, 17.5], [9.3, 0, 7.4], 42], bar: [[14.2, 1.6, 9.6], [14.2, 1.4, 3.6], 68], sala: [[17.6, 1.7, 9.9], [9.5, 1.1, 5.0], 66], portico: [[3.6, 1.6, 13.6], [14, 0.9, 12.6], 64] };
+const CAMS = { rossa: [[10.6, 1.6, 8.6], [7.9, 0.6, 6.9], 62], sala2: [[11.6, 1.75, 5.0], [15.5, 0.9, 9.8], 68], salatop: [[13.0, 11.5, 11.5], [12.8, 0, 6.8], 48], alto: [[9.3, 27, 17.5], [9.3, 0, 7.4], 42], bar: [[14.2, 1.6, 9.6], [14.2, 1.4, 3.6], 68], sala: [[17.6, 1.7, 9.9], [9.5, 1.1, 5.0], 66], portico: [[3.6, 1.6, 13.6], [14, 0.9, 12.6], 64] };
 const k = CAMS[VIEW] || CAMS.alto;
 const camera = new THREE.PerspectiveCamera(k[2], W / H, 0.05, 200); camera.position.set(...k[0]); camera.lookAt(...k[1]);
 renderer.render(scene, camera);
